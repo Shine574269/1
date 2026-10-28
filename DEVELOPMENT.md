@@ -27,3 +27,7 @@ The uploaded `MTFNN-CO-release2.zip` was confirmed by the owner to be the thesis
 ## Report-led project narratives
 
 All nine featured detail pages now introduce the problem, personal contribution, method and evidence/limitations directly in HTML. Umbrella coursework (English) and later competition material (Chinese) are separated. The thesis chart/table are transcribed from the supplied experiment.log, with oracle-assisted selection stated explicitly. Original source, checkpoints and a matching environment are still needed for reproducibility; the uploaded README discusses Keras 3 while the dependency export pins 2.8. No new training run is claimed. The full DailySense 10:40 recording is still absent; only the 90-second excerpt is embedded.
+
+## Unified case-study layout
+
+Nine canonical project detail pages share one stylesheet, header, six-section page navigation and footer: problem/goal, personal contribution, implementation approach, results/reflection, demonstrations/visuals, source/materials. Four legacy project paths redirect to their canonical pages. Browser checks cover both viewport widths, all six sections, old URLs and retained TED search/recommendation, interpolation, counter and video functionality. The newly uploaded GROUPCAN301video.zip also exceeded the tool's 32 MiB transfer limit; no full-length video replacement was possible.
