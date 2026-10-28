@@ -31,3 +31,9 @@ All nine featured detail pages now introduce the problem, personal contribution,
 ## Unified case-study layout
 
 Nine canonical project detail pages share one stylesheet, header, six-section page navigation and footer: problem/goal, personal contribution, implementation approach, results/reflection, demonstrations/visuals, source/materials. Four legacy project paths redirect to their canonical pages. Browser checks cover both viewport widths, all six sections, old URLs and retained TED search/recommendation, interpolation, counter and video functionality. The newly uploaded GROUPCAN301video.zip also exceeded the tool's 32 MiB transfer limit; no full-length video replacement was possible.
+
+## Document previews and presentation
+
+PDFs now use local preview cards and a shared accessible modal with a self-contained paginated image reader, zoom, open-in-new-tab and explicit download controls. Original files remain unchanged. Covers are rendered from the original PDFs as navigation thumbnails, with project explanations written directly in HTML. Environment/reproduction diagnostics belong here rather than in the public portfolio.
+
+The uploaded GROUPCAN301video.zip cannot be transferred because it exceeds the download tool's 32 MiB maximum. Since no bytes can be downloaded, the agent cannot split that archive locally. Only download_file is available for these uploaded files; no alternative attachment reader was exposed. A public host or user-side splitting/compression remains necessary for the full recording.
