@@ -17,7 +17,7 @@
 <p class="lead">A deep-learning model that improves the diagnostic quality of degraded chest X-rays.</p>
 <dl class="facts"><div><dt>Role</dt><dd>Research assistant</dd></div><div><dt>Model</dt><dd>U-Net</dd></div><div><dt>Topics</dt><dd>Image enhancement · Medical imaging</dd></div></dl>
 </header>
-<figure class="hero-media"><img src="../assets/xray-unet-arch.svg" alt="U-Net encoder–decoder with skip connections from degraded to enhanced X-ray" loading="lazy"><figcaption>U-Net encoder–decoder with skip connections (illustration).</figcaption></figure>
+<figure class="hero-media"><img src="../assets/xray-unet-arch.svg" alt="U-Net encoder–decoder with skip connections from degraded to enhanced X-ray" loading="eager" fetchpriority="high"><figcaption>U-Net encoder–decoder with skip connections (illustration).</figcaption></figure>
 <section class="overview" aria-label="Project summary">
 <article><h2>Challenge</h2><p>Poor contrast, motion blur and inadequate exposure in chest X-rays can hinder pneumonia detection.</p></article>
 <article><h2>What I did</h2><p>Built a U-Net enhancement model with a weighted loss that emphasises anatomical boundaries and suspected abnormal regions, plus elastic-deformation and intensity augmentation.</p></article>

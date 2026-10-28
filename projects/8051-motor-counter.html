@@ -17,7 +17,7 @@
 <p class="lead">Register-level C firmware that counts motor pulses and shows the result on a four-digit seven-segment display.</p>
 <dl class="facts"><div><dt>Role</dt><dd>Individual</dd></div><div><dt>Tools</dt><dd>Embedded C · Keil µVision</dd></div><div><dt>Hardware</dt><dd>AT89C51 · 7-segment display</dd></div></dl>
 </header>
-<figure class="hero-media"><img src="../assets/8051-counter-diagram.svg" alt="Signal path from motor pulses through timer, counter and interrupt to the display" loading="lazy"><figcaption>Signal path from motor pulses to the display.</figcaption></figure>
+<figure class="hero-media"><img src="../assets/8051-counter-diagram.svg" alt="Signal path from motor pulses through timer, counter and interrupt to the display" loading="eager" fetchpriority="high"><figcaption>Signal path from motor pulses to the display.</figcaption></figure>
 <section class="overview" aria-label="Project summary">
 <article><h2>Challenge</h2><p>Measure a pulse rate and display it continuously on a microcontroller with only two timers and no display driver chip.</p></article>
 <article><h2>What I did</h2><p>Used Timer 0 as a fixed measurement window and Counter 1 to count pulses. An interrupt reads the count and updates the value while the main loop multiplexes four digits.</p></article>

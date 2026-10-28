@@ -17,7 +17,7 @@
 <p class="lead">Speeding up a research question-answering system with a two-stage hybrid retrieval pipeline.</p>
 <dl class="facts"><div><dt>Role</dt><dd>Research assistant</dd></div><div><dt>Tools</dt><dd>Python · BM25 · Sentence-BERT · FAISS</dd></div><div><dt>Topics</dt><dd>Information retrieval · RAG</dd></div></dl>
 </header>
-<figure class="hero-media"><img src="../assets/rag-funnel.svg" alt="Funnel from all abstracts through BM25 and Sentence-BERT/FAISS to top papers" loading="lazy"><figcaption>Two-stage retrieval narrows the candidate set (illustration).</figcaption></figure>
+<figure class="hero-media"><img src="../assets/rag-funnel.svg" alt="Funnel from all abstracts through BM25 and Sentence-BERT/FAISS to top papers" loading="eager" fetchpriority="high"><figcaption>Two-stage retrieval narrows the candidate set (illustration).</figcaption></figure>
 <section class="overview" aria-label="Project summary">
 <article><h2>Challenge</h2><p>Computing similarity sequentially across all research abstracts made query responses slow.</p></article>
 <article><h2>What I did</h2><p>Implemented a hybrid architecture: BM25 for fast initial filtering, then Sentence-BERT embeddings stored in a FAISS vector index for semantic re-ranking.</p></article>
