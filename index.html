@@ -814,7 +814,7 @@
               </div>
             </article>
             <article class="project">
-              <a class="project-art" href="projects/smart-umbrella.html" tabindex="-1" aria-hidden="true"><video class="loop" muted loop playsinline preload="none" poster="assets/previews/umbrella-highlights.jpg" src="assets/previews/umbrella-highlights.mp4"></video><span class="media-badge">▶ Video</span></a>
+              <a class="project-art" href="projects/smart-umbrella.html" tabindex="-1" aria-hidden="true"><video class="loop" autoplay muted loop playsinline preload="metadata" poster="assets/previews/umbrella-highlights.jpg" src="assets/previews/umbrella-highlights.mp4"></video><span class="media-badge">▶ Video</span></a>
               <div class="project-body">
                 <div class="number">MECHATRONICS · TEAM LEADER · SECOND PRIZE 2025</div>
                 <h3>Four-in-One Smart Umbrella</h3>
@@ -922,7 +922,7 @@
           <h3 class="group-title">Software, games &amp; interaction design</h3>
           <div class="projects">
             <article class="project">
-              <a class="project-art framed" href="projects/aiva-app-design.html" tabindex="-1" aria-hidden="true" style="--bg:url('assets/previews/aiva-poster.jpg')"><video class="loop fit" muted loop playsinline preload="none" poster="assets/previews/aiva-poster.jpg" src="assets/previews/aiva-loop.mp4"></video><span class="media-badge">▶ Video</span></a>
+              <a class="project-art framed" href="projects/aiva-app-design.html" tabindex="-1" aria-hidden="true" style="--bg:url('assets/previews/aiva-poster.jpg')"><video class="loop fit" autoplay muted loop playsinline preload="metadata" poster="assets/previews/aiva-poster.jpg" src="assets/previews/aiva-loop.mp4"></video><span class="media-badge">▶ Video</span></a>
               <div class="project-body">
                 <div class="number">INTERACTION DESIGN · 2025</div>
                 <h3>AIVA — AI Life Steward App</h3>
@@ -1011,15 +1011,20 @@
           this.textContent = "shenmengxuan984@gmail.com";
         }
       });
-      // Play card previews only while visible, and never when the visitor prefers reduced motion.
+      // Card previews autoplay (muted); pause them off-screen, and never animate for reduced-motion visitors.
       (function () {
-        var vids = document.querySelectorAll("video.loop");
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+        var vids = Array.prototype.slice.call(document.querySelectorAll("video.loop"));
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          vids.forEach(function (v) { v.removeAttribute("autoplay"); v.pause(); });
+          return;
+        }
+        vids.forEach(function (v) { v.muted = true; var p = v.play(); if (p && p.catch) p.catch(function () {}); });
+        if (!("IntersectionObserver" in window)) return;
         var io = new IntersectionObserver(function (entries) {
           entries.forEach(function (e) {
-            if (e.isIntersecting) { e.target.play().catch(function () {}); } else { e.target.pause(); }
+            if (e.isIntersecting) { var p = e.target.play(); if (p && p.catch) p.catch(function () {}); } else { e.target.pause(); }
           });
-        }, { threshold: 0.4 });
+        }, { threshold: 0.1 });
         vids.forEach(function (v) { io.observe(v); });
       })();
     </script>
