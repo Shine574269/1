@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Real-time visual feedback for a hand-rehabilitation robot: MediaPipe hand keypoints and position-based visual servoing in Python.">
 <title>Vision-Guided Robotic Hand Rehabilitation — Mengxuan Shen</title>
-<link rel="stylesheet" href="../assets/project-study.css?v=3">
+<link rel="stylesheet" href="../assets/project-study.css?v=4">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -17,13 +17,17 @@
 <p class="lead">Adding real-time visual feedback to a rehabilitation robot so it follows the patient’s actual hand position instead of a fixed path.</p>
 <dl class="facts"><div><dt>Role</dt><dd>Research assistant</dd></div><div><dt>Tools</dt><dd>Python · OpenCV · MediaPipe</dd></div><div><dt>Topics</dt><dd>Visual servoing · Camera calibration · HRI</dd></div></dl>
 </header>
-<figure class="hero-media"><img src="../assets/rehab-pipeline.svg" alt="Control loop: overhead camera, hand keypoints, calibration, visual servoing, robot" loading="lazy"><figcaption>System overview (diagram drawn for this portfolio).</figcaption></figure>
+<figure class="hero-media"><img src="../assets/rehab-hand.svg" alt="Hand skeleton of 21 keypoints mapped from image to robot coordinates" loading="lazy"><figcaption>Hand keypoints tracked from the overhead camera and mapped into the robot frame (illustration drawn for this portfolio).</figcaption></figure>
 <section class="overview" aria-label="Project summary">
 <article><h2>Challenge</h2><p>The robot previously ran fixed trajectories, so exercises drifted out of alignment whenever a patient shifted posture or relaxed their shoulders, and a therapist had to step in.</p></article>
 <article><h2>What I did</h2><p>Implemented hand keypoint detection with OpenCV and MediaPipe from an overhead camera, and designed a position-based visual servoing controller in Python that maps joint coordinates from image space to the robot frame via calibration matrices.</p></article>
 <article><h2>Outcome</h2><p>Visual feedback was integrated into the robot’s control loop, so the trajectory adjusts automatically when the subject moves, reducing the need for manual therapist intervention.</p></article>
 </section>
-<section class="study-section"><h2>How the loop works</h2><ol class="flow"><li>Detect finger joints in each frame</li><li>Transform to robot coordinates</li><li>Compute position error</li><li>Update the trajectory</li></ol></section>
+<section class="study-section"><h2>How the loop works</h2><figure><img src="../assets/rehab-pipeline.svg" alt="Closed control loop from camera to robot" loading="lazy"><figcaption>Closed-loop visual feedback.</figcaption></figure></section><section class="study-section" id="hand-demo"><h2>Try it: real-time hand keypoints</h2>
+<p>The same kind of hand-landmark detection used in the project, running live in your browser with MediaPipe. Video stays on your device; nothing is uploaded.</p>
+<div class="card hd-card"><button type="button" class="btn" id="hd-start">Start camera ▶</button>
+<div class="hd-wrap" hidden><video id="hd-video" playsinline muted></video><canvas id="hd-canvas"></canvas></div>
+<p id="hd-status" role="status" class="muted"></p></div></section>
 <section id="resources" class="study-section">
 <h2>Notes</h2>
 
@@ -34,6 +38,35 @@
 <footer>© 2026 Mengxuan Shen · <a href="../index.html#contact">Contact</a> · <a href="../index.html#projects">All projects</a></footer>
 </main>
 
+<script type="module">
+const btn=document.getElementById('hd-start'),wrap=document.querySelector('.hd-wrap'),video=document.getElementById('hd-video'),canvas=document.getElementById('hd-canvas'),ctx=canvas.getContext('2d'),status=document.getElementById('hd-status');
+const C=[[0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],[5,9],[9,10],[10,11],[11,12],[9,13],[13,14],[14,15],[15,16],[13,17],[0,17],[17,18],[18,19],[19,20]];
+let lm,stream,last=-1;
+btn.addEventListener('click',async()=>{
+  if(stream){stream.getTracks().forEach(t=>t.stop());stream=null;wrap.hidden=true;btn.textContent='Start camera ▶';status.textContent='';return;}
+  btn.disabled=true;status.textContent='Loading hand model…';
+  try{
+    if(!lm){const v=await import('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/vision_bundle.mjs');
+      const fs=await v.FilesetResolver.forVisionTasks('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/wasm');
+      lm=await v.HandLandmarker.createFromOptions(fs,{baseOptions:{modelAssetPath:'https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task'},runningMode:'VIDEO',numHands:2});}
+    stream=await navigator.mediaDevices.getUserMedia({video:{width:640,height:480}});
+    video.srcObject=stream;await video.play();wrap.hidden=false;btn.textContent='Stop camera ■';status.textContent='Show your hand to the camera.';loop();
+  }catch(e){status.textContent='Could not start the demo ('+(e.name||e.message)+'). Camera access may be blocked in this browser.';}
+  btn.disabled=false;
+});
+function loop(){
+  if(!stream)return;
+  if(video.currentTime!==last){last=video.currentTime;
+    canvas.width=video.videoWidth;canvas.height=video.videoHeight;
+    const r=lm.detectForVideo(video,performance.now());ctx.clearRect(0,0,canvas.width,canvas.height);
+    (r.landmarks||[]).forEach(h=>{ctx.strokeStyle='#a6ffca';ctx.lineWidth=3;
+      C.forEach(([a,b])=>{ctx.beginPath();ctx.moveTo(h[a].x*canvas.width,h[a].y*canvas.height);ctx.lineTo(h[b].x*canvas.width,h[b].y*canvas.height);ctx.stroke();});
+      h.forEach((p,i)=>{ctx.beginPath();ctx.arc(p.x*canvas.width,p.y*canvas.height,[0,4,8,12,16,20].includes(i)?6:4,0,7);ctx.fillStyle='#0a1117';ctx.fill();ctx.strokeStyle='#f0f5f3';ctx.lineWidth=2;ctx.stroke();});});
+    const h=(r.landmarks||[])[0];
+    status.textContent=h?`Index fingertip at (u, v) = (${Math.round(h[8].x*canvas.width)}, ${Math.round(h[8].y*canvas.height)}) px — the kind of image coordinate a calibration matrix maps into the robot frame.`:'No hand detected yet.';}
+  requestAnimationFrame(loop);
+}
+</script>
 <script src="../assets/project-ui.js?v=1" defer></script>
 </body>
 </html>

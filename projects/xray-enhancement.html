@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Research assistant project: U-Net model with a boundary-weighted loss to enhance degraded chest X-rays for pneumonia detection.">
 <title>Chest X-ray Enhancement with U-Net — Mengxuan Shen</title>
-<link rel="stylesheet" href="../assets/project-study.css?v=3">
+<link rel="stylesheet" href="../assets/project-study.css?v=4">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -17,13 +17,14 @@
 <p class="lead">A deep-learning model that improves the diagnostic quality of degraded chest X-rays.</p>
 <dl class="facts"><div><dt>Role</dt><dd>Research assistant</dd></div><div><dt>Model</dt><dd>U-Net</dd></div><div><dt>Topics</dt><dd>Image enhancement · Medical imaging</dd></div></dl>
 </header>
-<figure class="hero-media"><img src="../assets/xray-unet.svg" alt="Pipeline: degraded X-ray, augmentation, U-Net, weighted loss, enhanced image" loading="lazy"><figcaption>Model overview (diagram drawn for this portfolio).</figcaption></figure>
+<figure class="hero-media"><img src="../assets/xray-unet-arch.svg" alt="U-Net encoder–decoder with skip connections from degraded to enhanced X-ray" loading="lazy"><figcaption>U-Net encoder–decoder with skip connections (illustration).</figcaption></figure>
 <section class="overview" aria-label="Project summary">
 <article><h2>Challenge</h2><p>Poor contrast, motion blur and inadequate exposure in chest X-rays can hinder pneumonia detection.</p></article>
 <article><h2>What I did</h2><p>Built a U-Net enhancement model with a weighted loss that emphasises anatomical boundaries and suspected abnormal regions, plus elastic-deformation and intensity augmentation.</p></article>
 <article><h2>Outcome</h2><p>Unlike standard losses that treat every pixel equally, the model focuses reconstruction quality on the regions that matter for diagnosis, and augmentation improves robustness across anatomy and exposure conditions.</p></article>
 </section>
 
+<section class="study-section"><h2>Training pipeline</h2><figure><img src="../assets/xray-unet.svg" alt="Pipeline: degraded X-ray, augmentation, U-Net, weighted loss, enhanced image" loading="lazy"><figcaption>Training pipeline.</figcaption></figure></section>
 <section id="resources" class="study-section">
 <h2>Notes</h2>
 

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Industrial computer vision internship: OpenCV pipeline to pre-screen robotic welding seams for cracks and porosity.">
 <title>Weld Seam Defect Pre-screening — Mengxuan Shen</title>
-<link rel="stylesheet" href="../assets/project-study.css?v=3">
+<link rel="stylesheet" href="../assets/project-study.css?v=4">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -17,13 +17,13 @@
 <p class="lead">An image-based pre-screening tool that flags obvious defects in robotic welding seams before human inspection.</p>
 <dl class="facts"><div><dt>Role</dt><dd>Vision System Assistant</dd></div><div><dt>Company</dt><dd>Hebei Beifang Welding Tools Co., Ltd.</dd></div><div><dt>Tools</dt><dd>Python · OpenCV</dd></div><div><dt>Data</dt><dd>450 weld images</dd></div></dl>
 </header>
-<figure class="hero-media"><img src="../assets/weld-pipeline.svg" alt="Pipeline from industrial camera to seam extraction, crack and porosity checks" loading="lazy"><figcaption>Pipeline overview (diagram drawn for this portfolio).</figcaption></figure>
+<figure class="hero-media"><img src="../assets/weld-illustration.svg" alt="Weld seam with a crack and porosity marked by detection boxes" loading="lazy"><figcaption>What the pre-screening looks for (illustration, not company data).</figcaption></figure>
 <section class="overview" aria-label="Project summary">
 <article><h2>Challenge</h2><p>Manual checking of robotic welding seams took 3–5 minutes per electrode holder, creating a quality-inspection bottleneck.</p></article>
 <article><h2>What I did</h2><p>Collected 450 weld images with the workshop’s industrial camera, wrote Python/OpenCV scripts to extract seam regions, labelled crack, porosity and incomplete-fusion examples, and with a senior engineer built the detection pipeline.</p></article>
 <article><h2>Outcome</h2><p>A pre-screening pipeline combining Canny edges for cracks and contour analysis for porosity, with thresholds tuned using feedback from two QC inspectors on 120 test cases.</p></article>
 </section>
-<section class="study-section"><h2>Method</h2><ol class="flow"><li>Edge detection + morphology to isolate the seam</li><li>Canny edges → crack candidates</li><li>Contour analysis → porosity</li><li>Flag for inspector review</li></ol></section>
+<section class="study-section"><h2>Method</h2><figure><img src="../assets/weld-pipeline.svg" alt="Pipeline from industrial camera to seam extraction, crack and porosity checks" loading="lazy"><figcaption>Processing pipeline.</figcaption></figure></section>
 <section id="resources" class="study-section">
 <h2>Notes</h2>
 

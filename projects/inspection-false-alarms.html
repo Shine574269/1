@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Internship: analysed misclassified inspection images and built an OpenCV preprocessing pipeline that cut lighting-induced false alarms by 45%.">
 <title>Reducing False Alarms in Automated Inspection — Mengxuan Shen</title>
-<link rel="stylesheet" href="../assets/project-study.css?v=3">
+<link rel="stylesheet" href="../assets/project-study.css?v=4">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -17,13 +17,14 @@
 <p class="lead">Finding why a new automated inspection system for insulated tool handles raised so many false alarms, and fixing the image preprocessing.</p>
 <dl class="facts"><div><dt>Role</dt><dd>Defect Analysis Intern</dd></div><div><dt>Company</dt><dd>Hebei Jincheng Yuan Electric Power Tools Co., Ltd.</dd></div><div><dt>Tools</dt><dd>Python · OpenCV</dd></div><div><dt>Result</dt><dd>−45% lighting-induced false alarms</dd></div></dl>
 </header>
-<figure class="hero-media"><img src="../assets/falsealarm-pipeline.svg" alt="Analysis pipeline from misclassified images to adaptive equalisation and closing" loading="lazy"><figcaption>Analysis pipeline (diagram drawn for this portfolio).</figcaption></figure>
+<figure class="hero-media"><img src="../assets/falsealarm-chart.svg" alt="Bar chart: lighting-induced false alarms fall from 100 to 55 after preprocessing" loading="lazy"><figcaption>Lighting-induced false alarms before and after the new preprocessing (relative values).</figcaption></figure>
 <section class="overview" aria-label="Project summary">
 <article><h2>Challenge</h2><p>A newly deployed automated inspection system flagged good insulated tool handles as defective about 30% of the time.</p></article>
 <article><h2>What I did</h2><p>Extracted and analysed 200 misclassified images, used histogram analysis to quantify brightness differences between true defects and false positives, and compared Gaussian, median and bilateral filtering in a Python/OpenCV preprocessing pipeline.</p></article>
 <article><h2>Outcome</h2><p>Adaptive histogram equalisation combined with morphological closing reduced lighting-induced false alarms by 45% in controlled tests on 150 samples.</p></article>
 </section>
 
+<section class="study-section"><h2>Method</h2><figure><img src="../assets/falsealarm-pipeline.svg" alt="Analysis pipeline from misclassified images to adaptive equalisation and closing" loading="lazy"><figcaption>Analysis pipeline.</figcaption></figure></section>
 <section id="resources" class="study-section">
 <h2>Notes</h2>
 
