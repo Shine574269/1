@@ -45,3 +45,4 @@ html{scroll-behavior:smooth}.project-header{padding:20px 0 25px}.project-nav{dis
 .gallery .portrait-media{display:flex;flex-direction:column;align-items:center}
 .study-section .gallery{margin:18px 0}
 .study-section .document-grid{margin-top:18px}
+.portrait-media video,.study-section figure.portrait-media video,.gallery .portrait-media video{width:auto!important;height:min(70vh,600px)!important;max-width:100%;aspect-ratio:9/16;object-fit:contain;background:#071017}
