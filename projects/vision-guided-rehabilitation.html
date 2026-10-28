@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Real-time visual feedback for a hand-rehabilitation robot: MediaPipe hand keypoints and position-based visual servoing in Python.">
+<title>Vision-Guided Robotic Hand Rehabilitation — Mengxuan Shen</title>
+<link rel="stylesheet" href="../assets/project-study.css?v=2">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<main>
+<a class="back" href="../index.html#projects">← All projects</a>
+<header class="project-header">
+<p class="eyebrow">Robotics research · Research Assistant, Robotics Laboratory · Oct 2024 – Feb 2025</p>
+<h1>Vision-Guided Robotic Hand Rehabilitation</h1>
+<p class="lead">Adding real-time visual feedback to a rehabilitation robot so it follows the patient’s actual hand position instead of a fixed path.</p>
+<dl class="facts"><div><dt>Role</dt><dd>Research assistant</dd></div><div><dt>Tools</dt><dd>Python · OpenCV · MediaPipe</dd></div><div><dt>Topics</dt><dd>Visual servoing · Camera calibration · HRI</dd></div></dl>
+</header>
+<figure class="hero-media"><img src="../assets/rehab-pipeline.svg" alt="Control loop: overhead camera, hand keypoints, calibration, visual servoing, robot" loading="lazy"><figcaption>System overview (diagram drawn for this portfolio).</figcaption></figure>
+<section class="overview" aria-label="Project summary">
+<article><h2>Challenge</h2><p>The robot previously ran fixed trajectories, so exercises drifted out of alignment whenever a patient shifted posture or relaxed their shoulders, and a therapist had to step in.</p></article>
+<article><h2>What I did</h2><p>Implemented hand keypoint detection with OpenCV and MediaPipe from an overhead camera, and designed a position-based visual servoing controller in Python that maps joint coordinates from image space to the robot frame via calibration matrices.</p></article>
+<article><h2>Outcome</h2><p>Visual feedback was integrated into the robot’s control loop, so the trajectory adjusts automatically when the subject moves, reducing the need for manual therapist intervention.</p></article>
+</section>
+<section class="study-section"><h2>How the loop works</h2><ol class="flow"><li>Detect finger joints in each frame</li><li>Transform to robot coordinates</li><li>Compute position error</li><li>Update the trajectory</li></ol></section>
+<section id="resources" class="study-section">
+<h2>Notes</h2>
+
+
+<p class="credits"><strong>Credits:</strong> Research carried out as a research assistant in a university robotics laboratory. Lab code, data and recordings are not publicly available, so this page describes the work in summary.</p>
+</section>
+<nav class="project-return" aria-label="Return to portfolio"><a class="btn return-button" href="../index.html#projects">← Back to all projects</a></nav>
+<footer>© 2026 Mengxuan Shen · <a href="../index.html#contact">Contact</a> · <a href="../index.html#projects">All projects</a></footer>
+</main>
+
+<script src="../assets/project-ui.js?v=1" defer></script>
+</body>
+</html>

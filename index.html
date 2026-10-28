@@ -4,6 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Mengxuan Shen, MSc Robotics student at the University of Manchester: computer vision, machine learning, embedded systems and robotics projects." />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Mengxuan Shen — Robotics Portfolio" />
+    <meta property="og:description" content="MSc Robotics student at the University of Manchester: computer vision, machine learning, embedded systems and robotics projects." />
+    <meta property="og:url" content="https://shine574269.github.io/" />
+    <meta property="og:image" content="https://shine574269.github.io/assets/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
     <title>Mengxuan Shen — Robotics Portfolio</title>
     <style>
       :root {
@@ -588,6 +595,19 @@
       }
     
       /* ---- v2 additions ---- */
+      .timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--border); }
+      .timeline li { display: grid; grid-template-columns: 170px 1fr; gap: 20px; padding: 0 0 26px 22px; position: relative; }
+      .timeline li::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--mint); }
+      .timeline .when { color: var(--mint); font-size: 13px; font-weight: 700; padding-top: 2px; }
+      .timeline h3 { margin: 0; font-size: 17px; }
+      .timeline .org { margin: 2px 0 6px; color: #c4d3d3; font-size: 14px; }
+      .timeline p { margin: 0; color: #a8bbbc; font-size: 14px; }
+      .timeline a { color: var(--mint); }
+      .awards { margin-top: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; }
+      .awards ul { margin: 10px 0 0; padding-left: 18px; color: #b0c0c1; font-size: 14px; line-height: 1.8; }
+      .awards strong { color: #d8f9e7; }
+      @media (max-width: 650px) { .timeline li { grid-template-columns: 1fr; gap: 4px; } }
+
       button.btn { background: transparent; color: var(--text); cursor: pointer; }
       button.btn:hover { border-color: var(--mint); color: var(--mint); }
       .group-title { font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; color: #c4d3d3; margin: 34px 0 16px; padding-bottom: 10px; border-bottom: 1px dashed var(--border); }
@@ -618,7 +638,7 @@
     <header class="container nav">
       <a class="logo" href="#top">MS<span>.</span> / Robotics</a>
       <nav aria-label="Main navigation" class="navlinks">
-        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+        <a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
       </nav>
       <a class="navcta" href="assets/Mengxuan_Shen_CV.pdf" target="_blank" rel="noopener">CV ↗</a>
     </header>
@@ -662,8 +682,7 @@
                 University.
               </p>
               <p>
-                My experience spans industrial computer vision with Python and OpenCV, vision-guided robotic rehabilitation, machine learning for edge computing,
-                embedded prototypes and interactive software.
+                Two industrial computer-vision internships, four research-assistant roles and a final-year thesis on machine learning for edge computing.
               </p>
             </div>
             <div class="panel about-panel research-panel">
@@ -680,11 +699,57 @@
         </div>
       </section>
 
+      <section class="section" id="experience">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="tagline">02 / Experience</span>
+              <h2>Industry &amp; research experience</h2>
+            </div>
+          </div>
+          <ol class="timeline">
+            <li>
+              <span class="when">Jul – Sep 2025</span>
+              <div><h3>Vision System Assistant</h3><p class="org">Hebei Beifang Welding Tools Co., Ltd.</p>
+              <p>Built an OpenCV pre-screening pipeline for robotic welding seams from 450 industrial-camera images, combining Canny edge detection and contour analysis to flag cracks and porosity before manual inspection.</p></div>
+            </li>
+            <li>
+              <span class="when">Oct 2024 – Feb 2025</span>
+              <div><h3>Research Assistant, Robotics Laboratory</h3><p class="org">Vision-guided hand rehabilitation</p>
+              <p>Real-time hand tracking with MediaPipe and position-based visual servoing so a rehabilitation robot follows the patient’s actual position. <a href="projects/vision-guided-rehabilitation.html">Project →</a></p></div>
+            </li>
+            <li>
+              <span class="when">Jul – Oct 2024</span>
+              <div><h3>Defect Analysis Intern</h3><p class="org">Hebei Jincheng Yuan Electric Power Tools Co., Ltd.</p>
+              <p>Analysed 200 misclassified inspection images; adaptive histogram equalisation with morphological closing cut lighting-induced false alarms by 45% in controlled tests.</p></div>
+            </li>
+            <li>
+              <span class="when">Feb – Jun 2024</span>
+              <div><h3>Research Assistant, Medical Imaging Group</h3><p class="org">Deep learning for X-ray enhancement</p>
+              <p>U-Net model with a boundary-weighted loss to enhance degraded chest X-rays for pneumonia detection.</p></div>
+            </li>
+            <li>
+              <span class="when">May – Sep 2023</span>
+              <div><h3>Research Assistant under Prof. Philipp Koehn</h3><p class="org">Johns Hopkins University</p>
+              <p>Hybrid BM25 + Sentence-BERT/FAISS retrieval pipeline for faster research question answering.</p></div>
+            </li>
+          </ol>
+          <div class="awards">
+            <span class="research-kicker">AWARDS</span>
+            <ul>
+              <li><strong>Second Prize</strong>, Jiangsu Provincial College Intelligent Robot Creativity Competition, 2025</li>
+              <li><strong>Honorable Mention</strong>, Mathematical Contest in Modeling (MCM), 2024</li>
+              <li><strong>First Place</strong>, ELC Sustainable Development Video Creation Competition, 2023</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="skills">
         <div class="container">
           <div class="section-head">
             <div>
-              <span class="tagline">02 / Toolbox</span>
+              <span class="tagline">03 / Toolbox</span>
               <h2>Technical skills</h2>
             </div>
           </div>
@@ -717,7 +782,7 @@
         <div class="container">
           <div class="section-head">
             <div>
-              <span class="tagline">03 / Projects</span>
+              <span class="tagline">04 / Projects</span>
               <h2>Selected projects &amp; research</h2>
             </div>
             <p class="section-intro">Each project links to a short case study with reports, source code and demos.</p>
@@ -726,14 +791,26 @@
           <h3 class="group-title">Hardware, vision &amp; machine learning</h3>
           <div class="projects">
             <article class="project">
+              <a class="project-art" href="projects/vision-guided-rehabilitation.html" tabindex="-1" aria-hidden="true">
+                <img src="assets/rehab-pipeline.svg" alt="" class="contain" />
+              </a>
+              <div class="project-body">
+                <div class="number">ROBOTICS RESEARCH · 2024–25</div>
+                <h3>Vision-Guided Robotic Hand Rehabilitation</h3>
+                <p>Real-time hand keypoint tracking and position-based visual servoing so a rehabilitation robot adapts to the patient’s posture.</p>
+                <div class="techs"><span class="tech">Python</span><span class="tech">MediaPipe</span><span class="tech">OpenCV</span><span class="tech">Visual Servoing</span></div>
+                <a class="project-link" href="projects/vision-guided-rehabilitation.html">View project →</a>
+              </div>
+            </article>
+            <article class="project">
               <a class="project-art" href="projects/smart-umbrella.html" tabindex="-1" aria-hidden="true">
                 <video class="loop" muted loop playsinline preload="none" poster="assets/previews/umbrella-poster.jpg" src="assets/previews/umbrella-loop.mp4"></video>
                 <span class="media-badge">▶ Video demo</span>
               </a>
               <div class="project-body">
-                <div class="number">MECHATRONICS · TEAM PROJECT</div>
+                <div class="number">MECHATRONICS · TEAM LEADER · SECOND PRIZE 2025</div>
                 <h3>Four-in-One Smart Umbrella</h3>
-                <p>Arduino prototype with GPS/4G tracking, a movement alarm, NFC return tag and night lighting. I led hardware selection and testing.</p>
+                <p>Arduino prototype with GPS/4G tracking, a movement alarm, NFC return tag and night lighting. I led the four-person team; it won Second Prize at a provincial robot competition.</p>
                 <div class="techs"><span class="tech">Arduino</span><span class="tech">MPU6050</span><span class="tech">GPS / 4G</span><span class="tech">NFC</span></div>
                 <a class="project-link" href="projects/smart-umbrella.html">View project →</a>
               </div>
@@ -849,7 +926,7 @@
         <div class="container">
           <div class="callout">
             <div>
-              <span class="tagline">04 / Contact</span>
+              <span class="tagline">05 / Contact</span>
               <h2>Let's build something useful.</h2>
               <p>Open to graduate roles and research opportunities in robotics, perception and autonomous systems.</p>
               <p class="email-line">shenmengxuan984@gmail.com</p>

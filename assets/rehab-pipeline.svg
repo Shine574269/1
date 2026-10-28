@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-labelledby="t d">
+  <title id="t">Vision-guided rehabilitation control loop</title>
+  <desc id="d">Overhead camera frames go to MediaPipe hand keypoint detection, are mapped to the robot frame by calibration, drive a position-based visual servoing controller, and the robot adjusts its trajectory; the patient's hand is observed again by the camera.</desc>
+  <rect width="760" height="300" fill="#10202a"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#a6ffca"/></marker>
+  </defs>
+  <g font-family="Inter,system-ui,Arial,sans-serif" text-anchor="middle">
+    <g fill="#132b29" stroke="#a6ffca" stroke-width="1.6">
+      <rect x="20" y="70" width="120" height="70" rx="10"/>
+      <rect x="170" y="70" width="130" height="70" rx="10"/>
+      <rect x="330" y="70" width="130" height="70" rx="10"/>
+      <rect x="490" y="70" width="120" height="70" rx="10"/>
+      <rect x="640" y="70" width="100" height="70" rx="10"/>
+    </g>
+    <g fill="#f0f5f3" font-size="14" font-weight="700">
+      <text x="80" y="100">Overhead</text><text x="80" y="118">camera</text>
+      <text x="235" y="100">Hand keypoints</text><text x="235" y="118" font-weight="400" fill="#b8dbd5" font-size="12">OpenCV · MediaPipe</text>
+      <text x="395" y="100">Calibration</text><text x="395" y="118" font-weight="400" fill="#b8dbd5" font-size="12">image → robot frame</text>
+      <text x="550" y="100">Visual servo</text><text x="550" y="118" font-weight="400" fill="#b8dbd5" font-size="12">position-based</text>
+      <text x="690" y="100">Rehab</text><text x="690" y="118">robot</text>
+    </g>
+    <g stroke="#a6ffca" stroke-width="2" fill="none" marker-end="url(#a)">
+      <path d="M140 105H166"/><path d="M300 105H326"/><path d="M460 105H486"/><path d="M610 105H636"/>
+      <path d="M690 140V215H80V144"/>
+    </g>
+    <text x="385" y="238" fill="#b8dbd5" font-size="13">Patient’s hand moves or posture shifts → trajectory adjusts in real time</text>
+    <text x="380" y="40" fill="#a6ffca" font-size="12" letter-spacing="2" font-weight="700">CLOSED-LOOP VISUAL FEEDBACK</text>
+  </g>
+</svg>
