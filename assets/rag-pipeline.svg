@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-labelledby="t d">
+<title id="t">Hybrid retrieval-augmented QA pipeline</title><desc id="d">A question is filtered with BM25, re-ranked with Sentence-BERT embeddings in a FAISS index, and the top papers are returned.</desc>
+<rect width="760" height="300" fill="#10202a"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#a6ffca"/></marker></defs>
+<g font-family="Inter,system-ui,Arial,sans-serif" text-anchor="middle">
+<text x="380" y="44" fill="#a6ffca" font-size="12" letter-spacing="2" font-weight="700">HYBRID RETRIEVAL FOR RESEARCH QA</text>
+<rect x="20" y="80" width="123" height="80" rx="10" fill="#132b29" stroke="#a6ffca" stroke-width="1.6"/>
+<text x="82" y="102" fill="#f0f5f3" font-size="14" font-weight="700">Research</text>
+<text x="82" y="119" fill="#f0f5f3" font-size="14" font-weight="700">question</text>
+<path d="M145 120.0H166" stroke="#a6ffca" stroke-width="2" marker-end="url(#a)"/>
+<rect x="169" y="80" width="123" height="80" rx="10" fill="#132b29" stroke="#a6ffca" stroke-width="1.6"/>
+<text x="231" y="110" fill="#f0f5f3" font-size="14" font-weight="700">BM25</text>
+<text x="231" y="142" fill="#b8dbd5" font-size="11.5">fast lexical filter</text>
+<path d="M294 120.0H315" stroke="#a6ffca" stroke-width="2" marker-end="url(#a)"/>
+<rect x="318" y="80" width="123" height="80" rx="10" fill="#132b29" stroke="#a6ffca" stroke-width="1.6"/>
+<text x="380" y="110" fill="#f0f5f3" font-size="14" font-weight="700">Sentence-BERT</text>
+<text x="380" y="142" fill="#b8dbd5" font-size="11.5">semantic embeddings</text>
+<path d="M444 120.0H465" stroke="#a6ffca" stroke-width="2" marker-end="url(#a)"/>
+<rect x="468" y="80" width="123" height="80" rx="10" fill="#132b29" stroke="#a6ffca" stroke-width="1.6"/>
+<text x="529" y="110" fill="#f0f5f3" font-size="14" font-weight="700">FAISS</text>
+<text x="529" y="142" fill="#b8dbd5" font-size="11.5">vector re-ranking</text>
+<path d="M593 120.0H614" stroke="#a6ffca" stroke-width="2" marker-end="url(#a)"/>
+<rect x="617" y="80" width="123" height="80" rx="10" fill="#132b29" stroke="#a6ffca" stroke-width="1.6"/>
+<text x="678" y="110" fill="#f0f5f3" font-size="14" font-weight="700">Top papers</text>
+<text x="678" y="142" fill="#b8dbd5" font-size="11.5">to the answer</text>
+<text x="380" y="220" fill="#b8dbd5" font-size="13">Replaces slow sequential similarity search over research abstracts</text>
+</g></svg>

@@ -595,6 +595,12 @@
       }
     
       /* ---- v2 additions ---- */
+      .project-art.framed { overflow: hidden; }
+      .project-art.framed::before { content: ""; position: absolute; inset: -30px; background: var(--bg) center / cover no-repeat; filter: blur(22px) brightness(0.45); }
+      .project-art.framed .fit { position: relative; height: 100%; width: auto; max-width: 100%; object-fit: contain; }
+      .project-art.paper { background: #f3f5f4; }
+      .project-art.paper img.contain { padding: 16px; }
+
       .timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--border); }
       .timeline li { display: grid; grid-template-columns: 170px 1fr; gap: 20px; padding: 0 0 26px 22px; position: relative; }
       .timeline li::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--mint); }
@@ -711,7 +717,7 @@
             <li>
               <span class="when">Jul – Sep 2025</span>
               <div><h3>Vision System Assistant</h3><p class="org">Hebei Beifang Welding Tools Co., Ltd.</p>
-              <p>Built an OpenCV pre-screening pipeline for robotic welding seams from 450 industrial-camera images, combining Canny edge detection and contour analysis to flag cracks and porosity before manual inspection.</p></div>
+              <p>Built an OpenCV pre-screening pipeline for robotic welding seams from 450 industrial-camera images, combining Canny edge detection and contour analysis to flag cracks and porosity before manual inspection. <a href="projects/weld-inspection.html">Project →</a></p></div>
             </li>
             <li>
               <span class="when">Oct 2024 – Feb 2025</span>
@@ -721,17 +727,27 @@
             <li>
               <span class="when">Jul – Oct 2024</span>
               <div><h3>Defect Analysis Intern</h3><p class="org">Hebei Jincheng Yuan Electric Power Tools Co., Ltd.</p>
-              <p>Analysed 200 misclassified inspection images; adaptive histogram equalisation with morphological closing cut lighting-induced false alarms by 45% in controlled tests.</p></div>
+              <p>Analysed 200 misclassified inspection images; adaptive histogram equalisation with morphological closing cut lighting-induced false alarms by 45% in controlled tests. <a href="projects/inspection-false-alarms.html">Project →</a></p></div>
             </li>
             <li>
               <span class="when">Feb – Jun 2024</span>
               <div><h3>Research Assistant, Medical Imaging Group</h3><p class="org">Deep learning for X-ray enhancement</p>
-              <p>U-Net model with a boundary-weighted loss to enhance degraded chest X-rays for pneumonia detection.</p></div>
+              <p>U-Net model with a boundary-weighted loss to enhance degraded chest X-rays for pneumonia detection. <a href="projects/xray-enhancement.html">Project →</a></p></div>
+            </li>
+            <li>
+              <span class="when">Jan – May 2024</span>
+              <div><h3>Research Assistant, Embedded Systems Lab</h3><p class="org">Edge machine learning for IoT navigation</p>
+              <p>On-device decision-tree model for an intelligent umbrella that recommends routes from weather patterns without the cloud, deployable on Arduino. <a href="projects/smart-umbrella.html">Related project →</a></p></div>
+            </li>
+            <li>
+              <span class="when">Dec 2023 – Feb 2024</span>
+              <div><h3>Team Leader, Mathematical Contest in Modeling</h3><p class="org">MCM · Honorable Mention</p>
+              <p>Led a three-member team through a 96-hour interdisciplinary optimisation problem, using Python and Java for data processing and MATLAB for modelling and validation.</p></div>
             </li>
             <li>
               <span class="when">May – Sep 2023</span>
               <div><h3>Research Assistant under Prof. Philipp Koehn</h3><p class="org">Johns Hopkins University</p>
-              <p>Hybrid BM25 + Sentence-BERT/FAISS retrieval pipeline for faster research question answering.</p></div>
+              <p>Hybrid BM25 + Sentence-BERT/FAISS retrieval pipeline for faster research question answering. <a href="projects/rag-research-qa.html">Project →</a></p></div>
             </li>
           </ol>
           <div class="awards">
@@ -788,49 +804,50 @@
             <p class="section-intro">Each project links to a short case study with reports, source code and demos.</p>
           </div>
 
-          <h3 class="group-title">Hardware, vision &amp; machine learning</h3>
+                    <h3 class="group-title">Robotics, vision &amp; embedded systems</h3>
           <div class="projects">
             <article class="project">
-              <a class="project-art" href="projects/vision-guided-rehabilitation.html" tabindex="-1" aria-hidden="true">
-                <img src="assets/rehab-pipeline.svg" alt="" class="contain" />
-              </a>
+              <a class="project-art " href="projects/vision-guided-rehabilitation.html" tabindex="-1" aria-hidden="true"><img src="assets/rehab-pipeline.svg" alt="" class="contain" loading="lazy" /></a>
               <div class="project-body">
                 <div class="number">ROBOTICS RESEARCH · 2024–25</div>
                 <h3>Vision-Guided Robotic Hand Rehabilitation</h3>
-                <p>Real-time hand keypoint tracking and position-based visual servoing so a rehabilitation robot adapts to the patient’s posture.</p>
-                <div class="techs"><span class="tech">Python</span><span class="tech">MediaPipe</span><span class="tech">OpenCV</span><span class="tech">Visual Servoing</span></div>
+                <p>Real-time hand tracking and position-based visual servoing so a rehabilitation robot adapts to the patient’s posture.</p>
+                <div class="techs"><span class="tech">Python</span><span class="tech">MediaPipe</span><span class="tech">OpenCV</span><span class="tech">Visual servoing</span></div>
                 <a class="project-link" href="projects/vision-guided-rehabilitation.html">View project →</a>
               </div>
             </article>
             <article class="project">
-              <a class="project-art" href="projects/smart-umbrella.html" tabindex="-1" aria-hidden="true">
-                <video class="loop" muted loop playsinline preload="none" poster="assets/previews/umbrella-poster.jpg" src="assets/previews/umbrella-loop.mp4"></video>
-                <span class="media-badge">▶ Video demo</span>
-              </a>
+              <a class="project-art framed" href="projects/smart-umbrella.html" tabindex="-1" aria-hidden="true" style="--bg:url('assets/covers/umbrella-night.jpg')"><img src="assets/covers/umbrella-night.jpg" alt="" class="fit" loading="lazy" /><span class="media-badge">▶ Video</span></a>
               <div class="project-body">
                 <div class="number">MECHATRONICS · TEAM LEADER · SECOND PRIZE 2025</div>
                 <h3>Four-in-One Smart Umbrella</h3>
-                <p>Arduino prototype with GPS/4G tracking, a movement alarm, NFC return tag and night lighting. I led the four-person team; it won Second Prize at a provincial robot competition.</p>
+                <p>Course group project turned competition entry: GPS/4G tracking, movement alarm, NFC return and LED lighting on Arduino.</p>
                 <div class="techs"><span class="tech">Arduino</span><span class="tech">MPU6050</span><span class="tech">GPS / 4G</span><span class="tech">NFC</span></div>
                 <a class="project-link" href="projects/smart-umbrella.html">View project →</a>
               </div>
             </article>
             <article class="project">
-              <a class="project-art" href="projects/memtl-edge-computing.html" tabindex="-1" aria-hidden="true">
-                <img src="assets/mtfnn-results-chart.svg" alt="" class="contain" />
-              </a>
+              <a class="project-art " href="projects/weld-inspection.html" tabindex="-1" aria-hidden="true"><img src="assets/weld-pipeline.svg" alt="" class="contain" loading="lazy" /></a>
               <div class="project-body">
-                <div class="number">FINAL-YEAR THESIS · 2026</div>
-                <h3>Multi-Head Learning for Edge Offloading</h3>
-                <p>A multi-head neural network that decides which mobile tasks to offload, with a label-free head selector that beats the baseline.</p>
-                <div class="techs"><span class="tech">Python</span><span class="tech">TensorFlow</span><span class="tech">Edge AI</span></div>
-                <a class="project-link" href="projects/memtl-edge-computing.html">View research →</a>
+                <div class="number">INDUSTRIAL VISION · INTERNSHIP 2025</div>
+                <h3>Weld Seam Defect Pre-screening</h3>
+                <p>OpenCV pipeline built from 450 industrial-camera images to flag cracks and porosity before manual inspection.</p>
+                <div class="techs"><span class="tech">Python</span><span class="tech">OpenCV</span><span class="tech">Canny</span><span class="tech">Contours</span></div>
+                <a class="project-link" href="projects/weld-inspection.html">View project →</a>
               </div>
             </article>
             <article class="project">
-              <a class="project-art" href="projects/int302-image-processing.html" tabindex="-1" aria-hidden="true">
-                <img src="assets/int302-pipeline.svg" alt="" class="contain" />
-              </a>
+              <a class="project-art " href="projects/inspection-false-alarms.html" tabindex="-1" aria-hidden="true"><img src="assets/falsealarm-pipeline.svg" alt="" class="contain" loading="lazy" /></a>
+              <div class="project-body">
+                <div class="number">INDUSTRIAL VISION · INTERNSHIP 2024</div>
+                <h3>Reducing False Alarms in Automated Inspection</h3>
+                <p>Histogram analysis and adaptive equalisation cut lighting-induced false alarms by 45% in controlled tests.</p>
+                <div class="techs"><span class="tech">Python</span><span class="tech">OpenCV</span><span class="tech">Image preprocessing</span></div>
+                <a class="project-link" href="projects/inspection-false-alarms.html">View project →</a>
+              </div>
+            </article>
+            <article class="project">
+              <a class="project-art paper" href="projects/int302-image-processing.html" tabindex="-1" aria-hidden="true"><img src="assets/covers/int302-filter.png" alt="" class="contain" loading="lazy" /></a>
               <div class="project-body">
                 <div class="number">COMPUTER VISION · 2026</div>
                 <h3>Image Processing &amp; Eigenfaces</h3>
@@ -840,9 +857,7 @@
               </div>
             </article>
             <article class="project">
-              <a class="project-art" href="projects/8051-motor-counter.html" tabindex="-1" aria-hidden="true">
-                <img src="assets/8051-counter-diagram.svg" alt="" class="contain" />
-              </a>
+              <a class="project-art " href="projects/8051-motor-counter.html" tabindex="-1" aria-hidden="true"><img src="assets/8051-counter-diagram.svg" alt="" class="contain" loading="lazy" /></a>
               <div class="project-body">
                 <div class="number">EMBEDDED SYSTEMS</div>
                 <h3>8051 Motor Pulse Counter</h3>
@@ -853,13 +868,40 @@
             </article>
           </div>
 
-          <h3 class="group-title">Software, games &amp; interaction design</h3>
+          <h3 class="group-title">Machine learning &amp; research</h3>
           <div class="projects">
             <article class="project">
-              <a class="project-art ted-art" href="projects/ted-retrieval.html" tabindex="-1" aria-hidden="true">
-                <span class="ted-word">TED<span> / Search</span></span>
-                <span class="ted-sub">TF-IDF · Cosine similarity · Live demo</span>
-              </a>
+              <a class="project-art paper" href="projects/memtl-edge-computing.html" tabindex="-1" aria-hidden="true"><img src="assets/covers/memtl-architecture.png" alt="" class="contain" loading="lazy" /></a>
+              <div class="project-body">
+                <div class="number">FINAL-YEAR THESIS · 2026</div>
+                <h3>Multi-Head Learning for Edge Offloading</h3>
+                <p>A multi-head neural network that decides which mobile tasks to offload, with a label-free head selector that beats the baseline.</p>
+                <div class="techs"><span class="tech">Python</span><span class="tech">TensorFlow</span><span class="tech">Edge AI</span></div>
+                <a class="project-link" href="projects/memtl-edge-computing.html">View research →</a>
+              </div>
+            </article>
+            <article class="project">
+              <a class="project-art " href="projects/xray-enhancement.html" tabindex="-1" aria-hidden="true"><img src="assets/xray-unet.svg" alt="" class="contain" loading="lazy" /></a>
+              <div class="project-body">
+                <div class="number">MEDICAL IMAGING · RESEARCH 2024</div>
+                <h3>Chest X-ray Enhancement with U-Net</h3>
+                <p>U-Net with a boundary-weighted loss to restore contrast and sharpness in degraded chest X-rays.</p>
+                <div class="techs"><span class="tech">U-Net</span><span class="tech">Deep learning</span><span class="tech">Augmentation</span></div>
+                <a class="project-link" href="projects/xray-enhancement.html">View project →</a>
+              </div>
+            </article>
+            <article class="project">
+              <a class="project-art " href="projects/rag-research-qa.html" tabindex="-1" aria-hidden="true"><img src="assets/rag-pipeline.svg" alt="" class="contain" loading="lazy" /></a>
+              <div class="project-body">
+                <div class="number">NLP · RESEARCH WITH JOHNS HOPKINS · 2023</div>
+                <h3>Retrieval-Augmented QA for Research Papers</h3>
+                <p>Hybrid BM25 + Sentence-BERT/FAISS retrieval to speed up a research question-answering system.</p>
+                <div class="techs"><span class="tech">Python</span><span class="tech">BM25</span><span class="tech">FAISS</span></div>
+                <a class="project-link" href="projects/rag-research-qa.html">View project →</a>
+              </div>
+            </article>
+            <article class="project">
+              <a class="project-art ted-art" href="projects/ted-retrieval.html" tabindex="-1" aria-hidden="true"><span class="ted-word">TED<span> / Search</span></span><span class="ted-sub">TF-IDF · Cosine similarity · Live demo</span></a>
               <div class="project-body">
                 <div class="number">INFORMATION RETRIEVAL</div>
                 <h3>TED Talks Search &amp; Recommendation</h3>
@@ -868,36 +910,12 @@
                 <a class="project-link" href="projects/ted-retrieval.html">Try live search →</a>
               </div>
             </article>
+          </div>
+
+          <h3 class="group-title">Software, games &amp; interaction design</h3>
+          <div class="projects">
             <article class="project">
-              <a class="project-art" href="projects/dailysense.html" tabindex="-1" aria-hidden="true">
-                <img src="assets/previews/dailysense-thumb.jpg" alt="" class="cover" />
-                <span class="media-badge">▶ Video demo</span>
-              </a>
-              <div class="project-body">
-                <div class="number">ANDROID · TEAM PROJECT · 2025</div>
-                <h3>DailySense — Intelligent Daily Companion</h3>
-                <p>Android app linking activity sensing, a calendar and AI diary entries. I designed the UI and built the calendar module.</p>
-                <div class="techs"><span class="tech">Android / Java</span><span class="tech">Figma</span><span class="tech">UI Design</span></div>
-                <a class="project-link" href="projects/dailysense.html">View project →</a>
-              </div>
-            </article>
-            <article class="project">
-              <a class="project-art" href="projects/ground-air-dungeon-shooter.html" tabindex="-1" aria-hidden="true">
-                <img src="assets/previews/unity-cover.png" alt="" class="cover" />
-              </a>
-              <div class="project-body">
-                <div class="number">GAME DEVELOPMENT</div>
-                <h3>Ground-Air Dungeon Shooter</h3>
-                <p>Two-level 2D Unity shooter with pursuing enemies, procedural obstacles, dash movement and power-ups.</p>
-                <div class="techs"><span class="tech">Unity</span><span class="tech">C#</span><span class="tech">Game AI</span></div>
-                <a class="project-link" href="projects/ground-air-dungeon-shooter.html">View game →</a>
-              </div>
-            </article>
-            <article class="project">
-              <a class="project-art" href="projects/aiva-app-design.html" tabindex="-1" aria-hidden="true">
-                <video class="loop" muted loop playsinline preload="none" poster="assets/previews/aiva-poster.jpg" src="assets/previews/aiva-loop.mp4"></video>
-                <span class="media-badge">▶ Video demo</span>
-              </a>
+              <a class="project-art framed" href="projects/aiva-app-design.html" tabindex="-1" aria-hidden="true" style="--bg:url('assets/previews/aiva-poster.jpg')"><video class="loop fit" muted loop playsinline preload="none" poster="assets/previews/aiva-poster.jpg" src="assets/previews/aiva-loop.mp4"></video><span class="media-badge">▶ Video</span></a>
               <div class="project-body">
                 <div class="number">INTERACTION DESIGN · 2025</div>
                 <h3>AIVA — AI Life Steward App</h3>
@@ -907,13 +925,31 @@
               </div>
             </article>
             <article class="project">
-              <a class="project-art" href="projects/cpt205-opengl.html" tabindex="-1" aria-hidden="true">
-                <img src="assets/CPT205_Actual_Project_Screens.jpg" alt="" class="contain" />
-              </a>
+              <a class="project-art " href="projects/dailysense.html" tabindex="-1" aria-hidden="true"><img src="assets/previews/dailysense-thumb.jpg" alt="" class="cover" loading="lazy" /><span class="media-badge">▶ Video</span></a>
+              <div class="project-body">
+                <div class="number">ANDROID · TEAM PROJECT · 2025</div>
+                <h3>DailySense — Intelligent Daily Companion</h3>
+                <p>Android app linking activity sensing, a calendar and AI diary entries. I designed the UI and built the calendar module.</p>
+                <div class="techs"><span class="tech">Android / Java</span><span class="tech">Figma</span><span class="tech">UI Design</span></div>
+                <a class="project-link" href="projects/dailysense.html">View project →</a>
+              </div>
+            </article>
+            <article class="project">
+              <a class="project-art " href="projects/ground-air-dungeon-shooter.html" tabindex="-1" aria-hidden="true"><img src="assets/previews/unity-cover.png" alt="" class="cover" loading="lazy" /></a>
+              <div class="project-body">
+                <div class="number">GAME DEVELOPMENT</div>
+                <h3>Ground-Air Dungeon Shooter</h3>
+                <p>Two-level 2D Unity shooter with pursuing enemies, procedural obstacles, dash movement and power-ups.</p>
+                <div class="techs"><span class="tech">Unity</span><span class="tech">C#</span><span class="tech">Game AI</span></div>
+                <a class="project-link" href="projects/ground-air-dungeon-shooter.html">View game →</a>
+              </div>
+            </article>
+            <article class="project">
+              <a class="project-art " href="projects/cpt205-opengl.html" tabindex="-1" aria-hidden="true"><img src="assets/covers/opengl-day-night.jpg" alt="" class="cover" loading="lazy" /></a>
               <div class="project-body">
                 <div class="number">COMPUTER GRAPHICS · 2024</div>
                 <h3>OpenGL Graphics: 2D Card &amp; 3D Castle</h3>
-                <p>Real-time C++ graphics: an interactive 2D card with animation and transforms, plus a textured 3D castle scene.</p>
+                <p>Real-time C++ graphics: an interactive 2D card with day/night modes and transforms, plus a textured 3D castle scene.</p>
                 <div class="techs"><span class="tech">C++</span><span class="tech">OpenGL</span><span class="tech">FreeGLUT</span></div>
                 <a class="project-link" href="projects/cpt205-opengl.html">View project →</a>
               </div>

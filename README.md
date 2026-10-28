@@ -10,6 +10,10 @@ Personal portfolio of Mengxuan Shen, MSc Robotics student at the University of M
 |---|---|---|
 | [Vision-guided robotic hand rehabilitation](https://shine574269.github.io/projects/vision-guided-rehabilitation.html) | Robotics, visual servoing | — |
 | [Four-in-one smart umbrella](https://shine574269.github.io/projects/smart-umbrella.html) | Arduino, GPS/4G, NFC | [Arduino sketch](assets/MEC202_Smart_Umbrella_Arduino.ino) |
+| [Weld seam defect pre-screening](https://shine574269.github.io/projects/weld-inspection.html) | Industrial computer vision (internship) | — |
+| [Reducing false alarms in automated inspection](https://shine574269.github.io/projects/inspection-false-alarms.html) | Industrial computer vision (internship) | — |
+| [Chest X-ray enhancement with U-Net](https://shine574269.github.io/projects/xray-enhancement.html) | Medical imaging, deep learning | — |
+| [Retrieval-augmented QA for research papers](https://shine574269.github.io/projects/rag-research-qa.html) | NLP, information retrieval | — |
 | [Multi-head learning for edge offloading](https://shine574269.github.io/projects/memtl-edge-computing.html) | Deep learning, edge AI | [repo](https://github.com/Shine574269/mengxuan-memtl-edge-computing) |
 | [Image processing & eigenfaces](https://shine574269.github.io/projects/int302-image-processing.html) | Computer vision, MATLAB | [MATLAB code](assets/) |
 | [8051 motor pulse counter](https://shine574269.github.io/projects/8051-motor-counter.html) | Embedded C | [C source](assets/8051-motor-counter.c) |

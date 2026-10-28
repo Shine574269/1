@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Research assistant project under Prof. Philipp Koehn: hybrid BM25 + Sentence-BERT/FAISS retrieval for faster research question answering.">
+<title>Retrieval-Augmented QA for Research Papers — Mengxuan Shen</title>
+<link rel="stylesheet" href="../assets/project-study.css?v=2">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<main>
+<a class="back" href="../index.html#projects">← All projects</a>
+<header class="project-header">
+<p class="eyebrow">NLP · Research Assistant under Prof. Philipp Koehn (Johns Hopkins University) · May – Sep 2023</p>
+<h1>Retrieval-Augmented QA for Research Papers</h1>
+<p class="lead">Speeding up a research question-answering system with a two-stage hybrid retrieval pipeline.</p>
+<dl class="facts"><div><dt>Role</dt><dd>Research assistant</dd></div><div><dt>Tools</dt><dd>Python · BM25 · Sentence-BERT · FAISS</dd></div><div><dt>Topics</dt><dd>Information retrieval · RAG</dd></div></dl>
+</header>
+<figure class="hero-media"><img src="../assets/rag-pipeline.svg" alt="Pipeline: question, BM25 filter, Sentence-BERT embeddings, FAISS re-ranking, top papers" loading="lazy"><figcaption>Retrieval pipeline (diagram drawn for this portfolio).</figcaption></figure>
+<section class="overview" aria-label="Project summary">
+<article><h2>Challenge</h2><p>Computing similarity sequentially across all research abstracts made query responses slow.</p></article>
+<article><h2>What I did</h2><p>Implemented a hybrid architecture: BM25 for fast initial filtering, then Sentence-BERT embeddings stored in a FAISS vector index for semantic re-ranking.</p></article>
+<article><h2>Outcome</h2><p>Faster response times while still returning relevant papers within the top results.</p></article>
+</section>
+
+<section id="resources" class="study-section">
+<h2>Notes</h2>
+
+
+<p class="credits"><strong>Credits:</strong> Research assistantship. The code is not publicly available.</p>
+</section>
+<nav class="project-return" aria-label="Return to portfolio"><a class="btn return-button" href="../index.html#projects">← Back to all projects</a></nav>
+<footer>© 2026 Mengxuan Shen · <a href="../index.html#contact">Contact</a> · <a href="../index.html#projects">All projects</a></footer>
+</main>
+
+<script src="../assets/project-ui.js?v=1" defer></script>
+</body>
+</html>
