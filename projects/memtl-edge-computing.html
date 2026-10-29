@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Final-year thesis by Mengxuan Shen: a multi-head neural network that decides which mobile tasks to offload to an edge server.">
 <title>Multi-Head Learning for Edge Offloading — Mengxuan Shen</title>
-<link rel="stylesheet" href="../assets/project-study.css?v=7">
+<link rel="stylesheet" href="../assets/project-study.css?v=8">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -24,6 +24,17 @@
 <article><h2>Outcome</h2><p>Enhanced gating beat majority voting and the original gating at every scale tested, and beat the single-head baseline at 2, 4 and 7 users.</p></article>
 </section>
 <section class="study-section"><h2>Choosing a head without test labels</h2><div class="table-scroll"><table class="compact-table"><caption>Exact decision accuracy (%), selected rows from thesis Table 4.14.</caption><thead><tr><th scope="col">Users</th><th scope="col">Baseline</th><th scope="col">Voting</th><th scope="col">Original gating</th><th scope="col">Enhanced gating</th></tr></thead><tbody><tr><th scope="row">2</th><td>93.88</td><td>92.57</td><td>93.34</td><td><strong>94.18</strong></td></tr><tr><th scope="row">4</th><td>80.34</td><td>76.97</td><td>79.10</td><td><strong>82.44</strong></td></tr><tr><th scope="row">6</th><td>78.65</td><td>75.95</td><td>76.44</td><td>78.21</td></tr><tr><th scope="row">8</th><td>74.45</td><td>71.47</td><td>72.22</td><td>74.06</td></tr></tbody></table></div></section>
+<section class="study-section"><h2>Code: what I changed</h2>
+<p>The thesis code builds on the open-source MTFNN-CO implementation. My changes made multi-head training work and inference fast:</p>
+<div class="stat-strip"><div><strong>7</strong><span>user scenarios (2–8 users)</span></div><div><strong>4</strong><span>head configurations (2–5 heads)</span></div><div><strong>≈0.02 ms</strong><span>prediction time per sample</span></div><div><strong>35</strong><span>epochs per training stage</span></div></div>
+<div class="table-scroll"><table class="compact-table"><thead><tr><th scope="col">Problem</th><th scope="col">My fix</th></tr></thead><tbody>
+<tr><th scope="row">Multi-head output crashed training (“No gradients”)</th><td>Rewrote <code>train_step</code> to compute the loss per head, with global-norm gradient clipping and <code>None</code>-gradient filtering</td></tr>
+<tr><th scope="row">Keras 3 blocked adding heads after build</th><td>Temporarily unlock the layer tracker when a new head is added</td></tr>
+<tr><th scope="row">Slow per-sample inference</th><td>XLA-compiled forward pass with warm-up, calling the model directly instead of <code>predict()</code></td></tr>
+<tr><th scope="row">6–8 user datasets failed to load</th><td>Automatic CSV separator detection; Keras 3 save/load updates; new evaluation script</td></tr>
+</tbody></table></div>
+<div class="buttons"><a class="btn" href="https://github.com/Shine574269/mengxuan-memtl-edge-computing" target="_blank" rel="noopener noreferrer">Browse the code on GitHub ↗</a><a class="btn" href="https://github.com/Shine574269/mengxuan-memtl-edge-computing/blob/main/experiment.log" target="_blank" rel="noopener noreferrer">Full experiment log ↗</a></div>
+</section>
 <section id="resources" class="study-section">
 <h2>Reports &amp; source</h2>
 <div class="document-grid"><article class="document-card"><button class="document-cover" type="button" data-pdf="../assets/Mengxuan_Shen_Final_Year_Thesis_Public.pdf" data-title="Final-year thesis" aria-label="Preview Final-year thesis"><img loading="lazy" src="../assets/document-previews/7721510c1ddc.jpg" alt=""></button><div><h3>Final-year thesis</h3><p>Model design, experiments and head-selection analysis.</p><button class="btn pdf-preview" type="button" data-pdf="../assets/Mengxuan_Shen_Final_Year_Thesis_Public.pdf" data-title="Final-year thesis">Preview PDF ↗</button></div></article></div>

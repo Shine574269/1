@@ -14,7 +14,7 @@ Personal portfolio of Mengxuan Shen, MSc Robotics student at the University of M
 | [Reducing false alarms in automated inspection](https://shine574269.github.io/projects/inspection-false-alarms.html) | Industrial computer vision (internship) | — |
 | [Chest X-ray enhancement with U-Net](https://shine574269.github.io/projects/xray-enhancement.html) | Medical imaging, deep learning | — |
 | [Retrieval-augmented QA for research papers](https://shine574269.github.io/projects/rag-research-qa.html) | NLP, information retrieval | — |
-| [Multi-head learning for edge offloading](https://shine574269.github.io/projects/memtl-edge-computing.html) | Deep learning, edge AI | [repo](https://github.com/Shine574269/mengxuan-memtl-edge-computing) |
+| [Multi-head learning for edge offloading](https://shine574269.github.io/projects/memtl-edge-computing.html) | Deep learning, edge AI | [code + thesis](https://github.com/Shine574269/mengxuan-memtl-edge-computing) |
 | [Image processing & eigenfaces](https://shine574269.github.io/projects/int302-image-processing.html) | Computer vision, MATLAB | [MATLAB code](assets/) |
 | [8051 motor pulse counter](https://shine574269.github.io/projects/8051-motor-counter.html) | Embedded C | [C source](assets/8051-motor-counter.c) |
 | [Modelling momentum in tennis (MCM 2024)](https://shine574269.github.io/projects/mcm-tennis-momentum.html) | Mathematical modelling | [paper](assets/MCM_2024_Team2405303_Tennis_Momentum.pdf) |
