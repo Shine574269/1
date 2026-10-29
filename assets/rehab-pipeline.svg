@@ -1,12 +1,12 @@
 <svg width="760" height="262" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 262" role="img" aria-labelledby="t d">
   <title id="t">Vision-guided rehabilitation control loop</title>
   <desc id="d">Overhead camera frames go to MediaPipe hand keypoint detection, are mapped to the robot frame by calibration, drive a position-based visual servoing controller, and the robot adjusts its trajectory; the patient's hand is observed again by the camera.</desc>
-  <rect width="760" height="262" fill="#ffffff"/>
+  <rect width="760" height="262" fill="#eaf6f0"/>
   <defs>
     <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1a7f5a"/></marker>
   </defs>
   <g font-family="Inter,system-ui,Arial,sans-serif" text-anchor="middle">
-    <g fill="#eef6f2" stroke="#1a7f5a" stroke-width="1.6">
+    <g fill="#d9efe4" stroke="#1a7f5a" stroke-width="1.6">
       <rect x="20" y="70" width="120" height="70" rx="10"/>
       <rect x="170" y="70" width="130" height="70" rx="10"/>
       <rect x="330" y="70" width="130" height="70" rx="10"/>

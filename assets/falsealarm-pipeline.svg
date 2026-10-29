@@ -1,29 +1,29 @@
 <svg width="760" height="295" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 295" role="img" aria-labelledby="t d">
 <title id="t">False-alarm analysis pipeline</title><desc id="d">Misclassified images analysed by brightness histogram, filters compared, adaptive histogram equalisation and morphological closing applied.</desc>
-<rect width="760" height="295" fill="#ffffff"/>
-<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1a7f5a"/></marker></defs>
+<rect width="760" height="295" fill="#fbf0ea"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#b4532a"/></marker></defs>
 <g font-family="Inter,system-ui,Arial,sans-serif" text-anchor="middle">
-<text x="380" y="44" fill="#1a7f5a" font-size="12" letter-spacing="2" font-weight="700">REDUCING LIGHTING-INDUCED FALSE ALARMS</text>
-<rect x="20" y="80" width="160" height="80" rx="10" fill="#eef6f2" stroke="#1a7f5a" stroke-width="1.6"/>
+<text x="380" y="44" fill="#b4532a" font-size="12" letter-spacing="2" font-weight="700">REDUCING LIGHTING-INDUCED FALSE ALARMS</text>
+<rect x="20" y="80" width="160" height="80" rx="10" fill="#f4ddd0" stroke="#b4532a" stroke-width="1.6"/>
 <text x="100" y="102" fill="#14232a" font-size="14" font-weight="700">Misclassified</text>
 <text x="100" y="119" fill="#14232a" font-size="14" font-weight="700">images</text>
 <text x="100" y="142" fill="#4d6168" font-size="11.5">200 from database</text>
-<path d="M182 120.0H204" stroke="#1a7f5a" stroke-width="2" marker-end="url(#a)"/>
-<rect x="206" y="80" width="160" height="80" rx="10" fill="#eef6f2" stroke="#1a7f5a" stroke-width="1.6"/>
+<path d="M182 120.0H204" stroke="#b4532a" stroke-width="2" marker-end="url(#a)"/>
+<rect x="206" y="80" width="160" height="80" rx="10" fill="#f4ddd0" stroke="#b4532a" stroke-width="1.6"/>
 <text x="287" y="102" fill="#14232a" font-size="14" font-weight="700">Histogram</text>
 <text x="287" y="119" fill="#14232a" font-size="14" font-weight="700">analysis</text>
 <text x="287" y="142" fill="#4d6168" font-size="11.5">brightness gaps</text>
-<path d="M369 120.0H390" stroke="#1a7f5a" stroke-width="2" marker-end="url(#a)"/>
-<rect x="393" y="80" width="160" height="80" rx="10" fill="#eef6f2" stroke="#1a7f5a" stroke-width="1.6"/>
+<path d="M369 120.0H390" stroke="#b4532a" stroke-width="2" marker-end="url(#a)"/>
+<rect x="393" y="80" width="160" height="80" rx="10" fill="#f4ddd0" stroke="#b4532a" stroke-width="1.6"/>
 <text x="473" y="102" fill="#14232a" font-size="14" font-weight="700">Filter</text>
 <text x="473" y="119" fill="#14232a" font-size="14" font-weight="700">comparison</text>
 <text x="473" y="142" fill="#4d6168" font-size="11.5">Gaussian · median · bilateral</text>
-<path d="M556 120.0H576" stroke="#1a7f5a" stroke-width="2" marker-end="url(#a)"/>
-<rect x="580" y="80" width="160" height="80" rx="10" fill="#eef6f2" stroke="#1a7f5a" stroke-width="1.6"/>
+<path d="M556 120.0H576" stroke="#b4532a" stroke-width="2" marker-end="url(#a)"/>
+<rect x="580" y="80" width="160" height="80" rx="10" fill="#f4ddd0" stroke="#b4532a" stroke-width="1.6"/>
 <text x="660" y="102" fill="#14232a" font-size="14" font-weight="700">Adaptive EQ</text>
 <text x="660" y="119" fill="#14232a" font-size="14" font-weight="700">+ closing</text>
 <text x="660" y="142" fill="#4d6168" font-size="11.5">chosen pipeline</text>
-<text x="380" y="215" fill="#1a7f5a" font-size="30" font-weight="800">−45%</text>
+<text x="380" y="215" fill="#b4532a" font-size="30" font-weight="800">−45%</text>
 <text x="380" y="240" fill="#4d6168" font-size="13">lighting-induced false alarms</text>
 <text x="380" y="275" fill="#4d6168" font-size="13">Controlled tests on 150 samples</text>
 </g></svg>
