@@ -114,3 +114,4 @@ img.zoomable{cursor:zoom-in}
 .zoom-stage.full img{max-width:none;max-height:none;cursor:zoom-out}
 .lab .zoom-wrap,.gallery .zoom-wrap,.hero-media:not(.portrait-media) .zoom-wrap{width:100%}
 code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:#132b29;padding:1px 5px;border-radius:4px;color:#d6e6e2}
+.zoom-wrap:has(> img[style*="max-height:none"]){width:100%}
