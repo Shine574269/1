@@ -125,3 +125,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;back
 /* SVG figures have no intrinsic size: always give them the full figure width */
 .zoom-wrap:has(> img[src*=".svg"]){width:100%}
 figure img[src*=".svg"]{width:100%;height:auto}
+
+/* Key-facts cards: equal-width grid instead of ragged wrapping */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+.facts div{height:100%}
