@@ -5,32 +5,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Research assistant project: U-Net model with a boundary-weighted loss to enhance degraded chest X-rays for pneumonia detection.">
 <title>Chest X-ray Enhancement with U-Net — Mengxuan Shen</title>
-<link rel="stylesheet" href="../assets/project-study.css?v=4">
+<link rel="stylesheet" href="../assets/project-study.css?v=5">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
 <main>
 <a class="back" href="../index.html#projects">← All projects</a>
 <header class="project-header">
-<p class="eyebrow">Medical imaging · Research Assistant, Medical Imaging Group · Feb – Jun 2024</p>
+<p class="eyebrow">Medical imaging · Deep learning · Research assistant</p>
 <h1>Chest X-ray Enhancement with U-Net</h1>
-<p class="lead">A deep-learning model that improves the diagnostic quality of degraded chest X-rays.</p>
-<dl class="facts"><div><dt>Role</dt><dd>Research assistant</dd></div><div><dt>Model</dt><dd>U-Net</dd></div><div><dt>Topics</dt><dd>Image enhancement · Medical imaging</dd></div></dl>
+<p class="lead">A deep-learning model that restores contrast and sharpness in degraded chest X-rays.</p>
 </header>
-<figure class="hero-media"><img src="../assets/xray-unet-arch.svg" alt="U-Net encoder–decoder with skip connections from degraded to enhanced X-ray" loading="eager" fetchpriority="high"><figcaption>U-Net encoder–decoder with skip connections (illustration).</figcaption></figure>
-<section class="overview" aria-label="Project summary">
-<article><h2>Challenge</h2><p>Poor contrast, motion blur and inadequate exposure in chest X-rays can hinder pneumonia detection.</p></article>
-<article><h2>What I did</h2><p>Built a U-Net enhancement model with a weighted loss that emphasises anatomical boundaries and suspected abnormal regions, plus elastic-deformation and intensity augmentation.</p></article>
-<article><h2>Outcome</h2><p>Unlike standard losses that treat every pixel equally, the model focuses reconstruction quality on the regions that matter for diagnosis, and augmentation improves robustness across anatomy and exposure conditions.</p></article>
-</section>
-
-<section class="study-section"><h2>Training pipeline</h2><figure><img src="../assets/xray-unet.svg" alt="Pipeline: degraded X-ray, augmentation, U-Net, weighted loss, enhanced image" loading="lazy"><figcaption>Training pipeline.</figcaption></figure></section>
-<section id="resources" class="study-section">
-<h2>Notes</h2>
-
-
-<p class="credits"><strong>Credits:</strong> University research-group project. Medical data and code are not publicly available.</p>
-</section>
+<figure class="hero-media"><img src="../assets/xray-unet-arch.svg" alt="U-Net encoder–decoder with skip connections from degraded to enhanced X-ray" loading="eager" fetchpriority="high"><figcaption>U-Net encoder–decoder with skip connections (illustration).</figcaption></figure><section class="study-section"><h2>Three ways X-rays degrade</h2><div class="chips"><span>Poor contrast</span><span>Motion blur</span><span>Inadequate exposure</span></div><p>Each can hide the signs a clinician looks for when screening for pneumonia.</p></section><section class="study-section"><h2>Two design decisions</h2><div class="compare"><div><h3>Standard loss</h3><p>Treats every image area equally, so the regions that matter most for diagnosis get no special attention.</p></div><div class="after"><h3>My weighted loss</h3><p>Extra weight on anatomical boundaries and suspected abnormal regions, where reconstruction quality matters for diagnosis.</p></div></div><p>Elastic deformations and intensity variations were added as augmentation so the model copes with different anatomy and exposure conditions.</p></section><section class="study-section"><h2>Training pipeline</h2><figure><img src="../assets/xray-unet.svg" alt="Pipeline: degraded X-ray, augmentation, U-Net, weighted loss, enhanced image" loading="lazy"><figcaption>From degraded input to enhanced output.</figcaption></figure></section><p class="note"><strong>Context:</strong> Research Assistant, Medical Imaging Group, Feb – Jun 2024. Patient images cannot be shared publicly.</p>
 <nav class="project-return" aria-label="Return to portfolio"><a class="btn return-button" href="../index.html#projects">← Back to all projects</a></nav>
 <footer>© 2026 Mengxuan Shen · <a href="../index.html#contact">Contact</a> · <a href="../index.html#projects">All projects</a></footer>
 </main>

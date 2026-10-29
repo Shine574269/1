@@ -3,33 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Two MATLAB labs by Mengxuan Shen: noise filtering and interpolation, then eigenface face recognition.">
+<meta name="description" content="Two individual MATLAB labs: Lab 1 pixel filtering and resampling; Lab 2 eigenface face representation and histogram equalisation.">
 <title>Image Processing &amp; Eigenfaces — Mengxuan Shen</title>
-<link rel="stylesheet" href="../assets/project-study.css?v=4">
+<link rel="stylesheet" href="../assets/project-study.css?v=5">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
 <main>
 <a class="back" href="../index.html#projects">← All projects</a>
 <header class="project-header">
-<p class="eyebrow">Computer vision · Individual MATLAB labs · 2026</p>
+<p class="eyebrow">Computer vision · Two individual MATLAB labs · 2026</p>
 <h1>Image Processing &amp; Eigenfaces</h1>
-<p class="lead">Cleaning and resizing images with local pixel operations, then recognising faces from compact eigenface features.</p>
-<dl class="facts"><div><dt>Role</dt><dd>Individual</dd></div><div><dt>Tools</dt><dd>MATLAB</dd></div><div><dt>Topics</dt><dd>Filtering · Interpolation · PCA</dd></div></dl>
+<p class="lead">Lab 1 cleans and resizes images pixel by pixel. Lab 2 represents whole faces with eigenfaces and improves contrast.</p>
 </header>
-<figure class="hero-media"><img src="../assets/int302-pipeline.svg" alt="Diagram linking pixel neighbourhood filters to eigenface projection" loading="eager" fetchpriority="high"><figcaption>From local pixel operations (Lab 1) to eigenface representations (Lab 2).</figcaption></figure>
-<section class="overview" aria-label="Project summary">
-<article><h2>Challenge</h2><p>Which local filter removes noise without blurring edges, and how few numbers are needed to recognise a face?</p></article>
-<article><h2>What I did</h2><p>Implemented neighbourhood filters and nearest-neighbour/bilinear resampling, then eigenface projection, reconstruction, nearest-neighbour matching and histogram equalisation.</p></article>
-<article><h2>Outcome</h2><p>A 3×3 median filter gave the best noise/detail balance for salt-and-pepper noise. A 100-weight eigenface vector matched the test face, but strong noise and over-exposure broke matching.</p></article>
-</section>
-<section class="study-section"><h2>Try it: nearest-neighbour vs bilinear</h2><div class="card"><label for="method">Interpolation <select id="method"><option value="nearest">Nearest-neighbor</option><option value="bilinear">Bilinear</option></select></label><canvas id="sampling" width="288" height="192" aria-label="Enlarged grayscale pattern showing the selected interpolation method"></canvas><p id="sampling-status" role="status"></p></div></section>
-<section id="resources" class="study-section">
-<h2>Reports &amp; source</h2>
-<div class="document-grid"><article class="document-card"><button class="document-cover" type="button" data-pdf="../assets/INT302-Lab1-Report.pdf" data-title="Lab 1 report" aria-label="Preview Lab 1 report"><img loading="lazy" src="../assets/document-previews/8a2c7d0c06ac.jpg" alt=""></button><div><h3>Lab 1 report</h3><p>Neighbourhoods, interpolation and filtering.</p><button class="btn pdf-preview" type="button" data-pdf="../assets/INT302-Lab1-Report.pdf" data-title="Lab 1 report">Preview PDF ↗</button></div></article><article class="document-card"><button class="document-cover" type="button" data-pdf="../assets/INT302-Lab2-Report.pdf" data-title="Lab 2 report" aria-label="Preview Lab 2 report"><img loading="lazy" src="../assets/document-previews/861b3d58e4e8.jpg" alt=""></button><div><h3>Lab 2 report</h3><p>Eigenfaces, recognition and histogram equalisation.</p><button class="btn pdf-preview" type="button" data-pdf="../assets/INT302-Lab2-Report.pdf" data-title="Lab 2 report">Preview PDF ↗</button></div></article></div>
-<div class="buttons"><a class="btn" href="../assets/INT302-Lab1-MATLAB-Code.zip">Lab 1 MATLAB code</a><a class="btn" href="../assets/INT302-Lab2-MATLAB-Code.zip">Lab 2 MATLAB code</a></div>
-<p class="credits"><strong>Credits:</strong> The face images and eigenface basis used in Lab 2 were supplied as course material by the module teaching team.</p>
-</section>
+<p>Two separate individual labs from the same image-processing module. Lab 1 works on <em>individual pixels and their neighbours</em>; Lab 2 works on <em>whole images as vectors</em>.</p><div class="labs"><article class="lab"><span class="tag">Lab 1 · Pixel operations</span><h2>Cleaning and resizing images</h2>
+<img src="../assets/covers/int302-lab1-median.png" alt="Salt-and-pepper noisy image beside 3×3 and 5×5 median-filtered results with PSNR values" loading="lazy">
+<ul><li>Pixel neighbourhoods and boundary handling</li><li>Nearest-neighbour vs bilinear resampling</li><li>Mean vs median filtering on Gaussian and salt-and-pepper noise</li></ul>
+<p class="result"><strong>Finding:</strong> a 3×3 median filter (PSNR 79.49 dB) removed impulse noise while keeping more detail than 5×5 (77.77 dB).</p>
+<div class="buttons"><button class="btn pdf-preview" type="button" data-pdf="../assets/INT302-Lab1-Report.pdf" data-title="Lab 1 report">Lab 1 report ↗</button><a class="btn" href="../assets/INT302-Lab1-MATLAB-Code.zip">Lab 1 code</a></div></article><article class="lab"><span class="tag">Lab 2 · Face representation</span><h2>Eigenfaces and contrast</h2>
+<img src="../assets/covers/int302-lab2-histeq.png" alt="Low-contrast image, histogram-equalised result, histograms and CDF comparison" loading="lazy">
+<ul><li>Projecting faces onto 100 eigenfaces and reconstructing them</li><li>Nearest-neighbour identity matching on the weight vectors</li><li>Robustness to noise and brightness; CDF-based histogram equalisation</li></ul>
+<p class="result"><strong>Finding:</strong> a 100-number weight vector matched the test face, but strong noise and over-exposure broke matching; equalisation spreads a narrow intensity range across the full scale.</p>
+<div class="buttons"><button class="btn pdf-preview" type="button" data-pdf="../assets/INT302-Lab2-Report.pdf" data-title="Lab 2 report">Lab 2 report ↗</button><a class="btn" href="../assets/INT302-Lab2-MATLAB-Code.zip">Lab 2 code</a></div></article></div><section class="study-section"><h2>Try it: nearest-neighbour vs bilinear (Lab 1)</h2><div class="card"><label for="method">Interpolation <select id="method"><option value="nearest">Nearest-neighbor</option><option value="bilinear">Bilinear</option></select></label><canvas id="sampling" width="288" height="192" aria-label="Enlarged grayscale pattern showing the selected interpolation method"></canvas><p id="sampling-status" role="status"></p></div></section><p class="note"><strong>Source:</strong> MATLAB code for both labs is in the downloads above and on <a href="https://github.com/Shine574269/shine574269.github.io/tree/main/assets" target="_blank" rel="noopener noreferrer">GitHub</a>. Test images and the eigenface basis were supplied by the module.</p>
 <nav class="project-return" aria-label="Return to portfolio"><a class="btn return-button" href="../index.html#projects">← Back to all projects</a></nav>
 <footer>© 2026 Mengxuan Shen · <a href="../index.html#contact">Contact</a> · <a href="../index.html#projects">All projects</a></footer>
 </main>

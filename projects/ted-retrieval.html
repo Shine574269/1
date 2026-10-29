@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="TF-IDF search engine and content-based recommender for 2,550 TED Talks, with a live in-browser demo.">
 <title>TED Talks Search &amp; Recommendation — Mengxuan Shen</title>
-<link rel="stylesheet" href="../assets/project-study.css?v=4">
+<link rel="stylesheet" href="../assets/project-study.css?v=5">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -17,7 +17,16 @@
 <p class="lead">A search engine and “more like this” recommender for 2,550 TED Talks. Try the live version below.</p>
 <dl class="facts"><div><dt>Role</dt><dd>Individual</dd></div><div><dt>Tools</dt><dd>Python · scikit-learn · Tkinter</dd></div><div><dt>Method</dt><dd>TF-IDF · Cosine similarity</dd></div></dl>
 </header>
-<section class="card" id="live-demo"><h2>Live search</h2><p>Search by topic, then pick a result to see similar talks. Runs in your browser using the same TF-IDF settings as the Python app.</p><div style="display:flex;gap:9px;flex-wrap:wrap"><input aria-label="Search TED Talks" id="ted-query" value="" style="flex:1;min-width:200px;padding:13px;border-radius:8px;background:#07131a;color:#fff;border:1px solid #56776a" placeholder="Try “climate change” or “education creativity”"><button id="ted-run" class="btn">Search</button></div><p id="ted-status">Loading searchable index...</p><div id="ted-results"></div><h3 id="similar-title"></h3><div id="ted-similar"></div></section>
+<section class="study-section" id="dataset"><h2>The dataset</h2>
+<p>Each record is one TED or TEDx talk with its <strong>title, speaker, description and tags</strong>. The search ranks talks by how well these fields match your words.</p>
+<div class="stat-strip"><div><strong>2,550</strong><span>talks</span></div><div><strong>2,156</strong><span>speakers</span></div><div><strong>1972–2017</strong><span>filming dates</span></div><div><strong>~14 min</strong><span>average length</span></div></div>
+<h3 class="mini">Most common topics — click one to search</h3>
+<div class="chips q"><button type="button" class="chip-q" data-q="technology">technology</button><button type="button" class="chip-q" data-q="science">science</button><button type="button" class="chip-q" data-q="global issues">global issues</button><button type="button" class="chip-q" data-q="culture">culture</button><button type="button" class="chip-q" data-q="design">design</button><button type="button" class="chip-q" data-q="business">business</button><button type="button" class="chip-q" data-q="health">health</button><button type="button" class="chip-q" data-q="innovation">innovation</button><button type="button" class="chip-q" data-q="art">art</button><button type="button" class="chip-q" data-q="future">future</button><button type="button" class="chip-q" data-q="creativity">creativity</button><button type="button" class="chip-q" data-q="communication">communication</button></div>
+<h3 class="mini">Or try an example query</h3>
+<div class="chips q"><button type="button" class="chip-q" data-q="education creativity">education creativity</button><button type="button" class="chip-q" data-q="climate change">climate change</button><button type="button" class="chip-q" data-q="artificial intelligence">artificial intelligence</button><button type="button" class="chip-q" data-q="happiness">happiness</button><button type="button" class="chip-q" data-q="leadership">leadership</button><button type="button" class="chip-q" data-q="the brain">the brain</button></div>
+<p class="muted small">Most viewed in the dataset: “Do schools kill creativity?” (Ken Robinson), “Your body language may shape who you are” (Amy Cuddy), “How great leaders inspire action” (Simon Sinek).</p>
+</section>
+<section class="card" id="live-demo"><h2>Live search</h2><p>Type any topic or click a chip above, then choose a result to see similar talks. Runs in your browser with the same TF-IDF settings as the Python app.</p><div style="display:flex;gap:9px;flex-wrap:wrap"><input aria-label="Search TED Talks" id="ted-query" value="" style="flex:1;min-width:200px;padding:13px;border-radius:8px;background:#07131a;color:#fff;border:1px solid #56776a" placeholder="Try “climate change” or “education creativity”"><button id="ted-run" class="btn">Search</button></div><p id="ted-status">Loading searchable index...</p><div id="ted-results"></div><h3 id="similar-title"></h3><div id="ted-similar"></div></section>
 <section class="overview" aria-label="Project summary">
 <article><h2>Challenge</h2><p>Help users find relevant talks from a free-text query, then discover similar talks once they find one they like.</p></article>
 <article><h2>What I did</h2><p>Cleaned and combined titles, descriptions and tags, built a 5,000-feature unigram/bigram TF-IDF index, and ranked results by cosine similarity in a Tkinter desktop app.</p></article>
@@ -43,6 +52,9 @@ function similar(i){let scores=new Map();let features=db.postByDoc?.[i];if(!feat
 document.addEventListener('click',e=>{let a=e.target.closest('.recommend');if(a){e.preventDefault();if(db)similar(+a.dataset.id)}});
 Promise.resolve(window.TED_INDEX).then(x=>{db=x;termMap=new Map(db.terms.map((t,i)=>[t,i]));$('ted-status').textContent=`Ready: ${db.docs.length} talks. Enter a query and select Search.`}).catch(err=>$('ted-status').textContent='Unable to load search index. '+err.message);
 function run(){if(!db)return;const query=$('ted-query').value.trim();$('ted-results').innerHTML='';$('ted-similar').innerHTML='';$('similar-title').textContent='';if(!query){$('ted-status').textContent='Enter a query to search the talks.';return;}let r=queryIndex(query);$('ted-status').textContent=r.length+' matching results';render(r,'ted-results');} $('ted-run').onclick=run;$('ted-query').addEventListener('keydown',e=>{if(e.key==='Enter')run()});
+</script>
+<script>
+document.addEventListener('click',function(e){var b=e.target.closest('.chip-q');if(!b)return;var q=document.getElementById('ted-query');q.value=b.dataset.q;document.getElementById('ted-run').click();document.getElementById('live-demo').scrollIntoView({behavior:'smooth',block:'start'});});
 </script>
 <script src="../assets/project-ui.js?v=1" defer></script>
 </body>
