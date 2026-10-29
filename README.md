@@ -23,7 +23,7 @@ Personal portfolio of Mengxuan Shen, MSc Robotics student at the University of M
 | [Hospital Escape (3D escape room)](https://shine574269.github.io/projects/hospital-escape.html) | Unity 3D, UI | [report](assets/CPT306_Hospital_Escape_Report_Public.pdf) |
 | [Ground-Air Dungeon Shooter](https://shine574269.github.io/projects/ground-air-dungeon-shooter.html) | Unity, C# | [repo](https://github.com/Shine574269/mengxuan-unity-dungeon-shooter) |
 | [AIVA — AI life steward app](https://shine574269.github.io/projects/aiva-app-design.html) | Interaction design | [repo](https://github.com/Shine574269/mengxuan-aiva-design) |
-| [OpenGL graphics](https://shine574269.github.io/projects/cpt205-opengl.html) | C++, OpenGL | [repo](https://github.com/Shine574269/mengxuan-cpt205-opengl) |
+| [OpenGL interactive birthday card](https://shine574269.github.io/projects/cpt205-opengl.html) | C++, OpenGL | [source](https://github.com/Shine574269/mengxuan-cpt205-opengl/blob/main/birthday-card.cpp) |
 
 ## About this site
 

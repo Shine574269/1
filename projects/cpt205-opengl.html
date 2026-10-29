@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Two real-time C++ OpenGL projects: an interactive 2D birthday card and a textured 3D castle scene.">
-<title>OpenGL Graphics: 2D Card &amp; 3D Castle — Mengxuan Shen</title>
+<meta name="description" content="Real-time C++ OpenGL graphics: an interactive 2D birthday card with day/night modes, animation and transforms.">
+<title>OpenGL Interactive Birthday Card — Mengxuan Shen</title>
 <link rel="stylesheet" href="../assets/project-study.css?v=11">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 </head>
@@ -13,22 +13,22 @@
 <a class="back" href="../index.html#projects">← All projects</a>
 <header class="project-header">
 <p class="eyebrow">Computer graphics · C++ / OpenGL · Individual coursework</p>
-<h1>OpenGL Graphics: 2D Card &amp; 3D Castle</h1>
-<p class="lead">Two real-time graphics projects: an interactive 2D birthday card and a textured 3D castle scene.</p>
-<dl class="facts"><div><dt>Role</dt><dd>Individual</dd></div><div><dt>Tools</dt><dd>C++ · OpenGL · FreeGLUT</dd></div><div><dt>Topics</dt><dd>Transforms · Animation · Lighting</dd></div></dl>
+<h1>OpenGL Interactive Birthday Card</h1>
+<p class="lead">A real-time 2D scene built from geometric primitives, with animation, transformations and five kinds of user interaction.</p>
+<dl class="facts"><div><dt>Role</dt><dd>Individual</dd></div><div><dt>Tools</dt><dd>C++ · OpenGL · FreeGLUT</dd></div><div><dt>Topics</dt><dd>Primitives · Transforms · Animation</dd></div></dl>
 </header>
 <figure class="hero-media"><img src="../assets/covers/opengl-day-night-16x9.jpg" alt="Birthday card scene in day and night modes" loading="eager" fetchpriority="high"><figcaption>2D card in day and night modes.</figcaption></figure>
 <section class="overview" aria-label="Project summary">
-<article><h2>Challenge</h2><p>Build interactive scenes from basic primitives, then move to 3D meshes, lighting and camera control.</p></article>
-<article><h2>What I did</h2><p>Wrote reusable shape helpers and keyboard/mouse callbacks for the 2D card, then loaded OBJ meshes with textures, lighting and a skybox for the castle.</p></article>
-<article><h2>Outcome</h2><p>A card with five interactive behaviours and a separate navigable 3D castle scene.</p></article>
+<article><h2>Challenge</h2><p>Build a lively, interactive scene using only basic OpenGL primitives, without images or textures.</p></article>
+<article><h2>What I did</h2><p>Wrote reusable shape helpers (rectangles, circles, petals, sun rays), timer-driven animation and keyboard/mouse callbacks.</p></article>
+<article><h2>Outcome</h2><p>A card with day/night modes, a candle you can blow out, rising balloons, a movable butterfly and a birthday message.</p></article>
 </section>
-<section class="study-section"><h2>What the user can do</h2><div class="table-scroll"><table class="compact-table"><thead><tr><th scope="col">Input</th><th scope="col">Result</th></tr></thead><tbody><tr><th scope="row">Right click</th><td>Switch between day and night</td></tr><tr><th scope="row">Left click</th><td>Fade the candle flame (10 clicks to blow out)</td></tr><tr><th scope="row">W/A/S/D, R, Q/E</th><td>Move, rotate and scale the butterfly</td></tr><tr><th scope="row">Space</th><td>Release the balloons</td></tr><tr><th scope="row">Enter</th><td>Show the birthday message</td></tr></tbody></table></div></section><section class="study-section"><h2>3D castle</h2><figure class=""><img src="../assets/CPT205_Castle_Real_OBJ_Render.png" alt="Render of the castle OBJ model" loading="lazy"><figcaption>Render of the castle model geometry.</figcaption></figure><p class="source-note"><strong>Third-party 3D assets:</strong> the castle models, textures and skybox images are downloads whose original sources could not be traced. My work is the scene assembly, lighting, camera and rendering code; used for non-commercial coursework only.</p></section>
+<section class="study-section"><h2>What the user can do</h2><div class="table-scroll"><table class="compact-table"><thead><tr><th scope="col">Input</th><th scope="col">Result</th></tr></thead><tbody><tr><th scope="row">Right click</th><td>Switch between day and night</td></tr><tr><th scope="row">Left click</th><td>Fade the candle flame (10 clicks to blow out)</td></tr><tr><th scope="row">W/A/S/D, R, Q/E</th><td>Move, rotate and scale the butterfly</td></tr><tr><th scope="row">Space</th><td>Release the balloons</td></tr><tr><th scope="row">Enter</th><td>Show the birthday message</td></tr></tbody></table></div></section>
 <section id="resources" class="study-section">
 <h2>Reports &amp; source</h2>
 <div class="document-grid"><article class="document-card"><button class="document-cover" type="button" data-pdf="../assets/CPT205_OpenGL_Report.pdf" data-title="2D card report" aria-label="Preview 2D card report"><img loading="lazy" src="../assets/document-previews/45da6040d0a1.jpg" alt=""></button><div><h3>2D card report</h3><p>Primitives, interaction and animation.</p><button class="btn pdf-preview" type="button" data-pdf="../assets/CPT205_OpenGL_Report.pdf" data-title="2D card report">Preview PDF ↗</button></div></article></div>
-<div class="buttons"><a class="btn" href="https://github.com/Shine574269/mengxuan-cpt205-opengl" target="_blank" rel="noopener noreferrer">View repository on GitHub ↗</a><a class="btn" href="https://github.com/Shine574269/mengxuan-cpt205-opengl/raw/refs/heads/main/castle-original-source.zip" target="_blank" rel="noopener noreferrer">Download castle project</a><a class="btn" href="../assets/CPT205_Original_Coursework.zip">Download 2D card source</a></div>
-<p class="credits"><strong>Credits:</strong> The 2D card is entirely my own work. The 3D castle’s models, textures and skybox images are third-party downloads whose original sources could not be traced; the scene, lighting and camera code is my own. Libraries: FreeGLUT, GLM, SOIL and stb_image.</p>
+<div class="buttons"><a class="btn" href="https://github.com/Shine574269/mengxuan-cpt205-opengl/blob/main/birthday-card.cpp" target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a><a class="btn" href="../assets/CPT205_Original_Coursework.zip">Download 2D card source</a></div>
+<p class="credits"><strong>Credits:</strong> Entirely my own work: every shape is drawn in code, with no external images or models. Uses the FreeGLUT library.</p>
 
 </section>
 <nav class="project-return" aria-label="Return to portfolio"><a class="btn return-button" href="../index.html#projects">← Back to all projects</a></nav>
