@@ -447,6 +447,18 @@
           grid-template-columns: 1fr !important;
         }
       }
+      /* Odd last card: span both columns as a horizontal card on desktop */
+      @media (min-width: 721px) {
+        .projects > .project:last-child:nth-child(odd) {
+          grid-column: 1 / -1;
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        }
+        .projects > .project:last-child:nth-child(odd) .project-art {
+          height: 100%;
+          min-height: 265px;
+        }
+      }
 
       /* Final typography and contact layout refinements */
       .research-panel {
