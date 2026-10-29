@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-labelledby="t d">
+<svg width="760" height="300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-labelledby="t d">
 <title id="t">Hybrid retrieval-augmented QA pipeline</title><desc id="d">A question is filtered with BM25, re-ranked with Sentence-BERT embeddings in a FAISS index, and the top papers are returned.</desc>
 <rect width="760" height="300" fill="#10202a"/>
 <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#a6ffca"/></marker></defs>

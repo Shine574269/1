@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-labelledby="t d">
+<svg width="760" height="300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-labelledby="t d">
 <title id="t">Chest X-ray enhancement with U-Net</title><desc id="d">Degraded X-ray enters a U-Net trained with a boundary-weighted loss and augmentation, producing an enhanced image for pneumonia screening.</desc>
 <rect width="760" height="300" fill="#10202a"/>
 <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#a6ffca"/></marker></defs>

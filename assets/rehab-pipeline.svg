@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-labelledby="t d">
+<svg width="760" height="300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-labelledby="t d">
   <title id="t">Vision-guided rehabilitation control loop</title>
   <desc id="d">Overhead camera frames go to MediaPipe hand keypoint detection, are mapped to the robot frame by calibration, drive a position-based visual servoing controller, and the robot adjusts its trajectory; the patient's hand is observed again by the camera.</desc>
   <rect width="760" height="300" fill="#10202a"/>

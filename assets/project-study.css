@@ -122,3 +122,6 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;back
 .source-note strong{color:#e0f3ec}
 .source-note{display:block;position:relative;padding:10px 14px 10px 36px}
 .source-note::before{position:absolute;left:13px;top:10px}
+/* SVG figures have no intrinsic size: always give them the full figure width */
+.zoom-wrap:has(> img[src$=".svg"]){width:100%}
+figure img[src$=".svg"]{width:100%;height:auto}
