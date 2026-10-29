@@ -87,3 +87,28 @@ html{scroll-behavior:smooth}.project-header{padding:20px 0 25px}.project-nav{dis
 .chips.q button{font:inherit;font-size:14px;border:1px solid #3f6057;background:#132b29;color:#d6e6e2;border-radius:999px;padding:7px 14px;cursor:pointer}
 .chips.q button:hover{border-color:var(--mint);color:var(--mint)}
 .small{font-size:13px}
+
+/* ---- v6: compact demo, lab cards, zoomable images ---- */
+.labs{align-items:start}
+.lab .buttons{margin-top:4px}
+.interp label{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.interp input[type=range]{flex:1 1 160px;max-width:260px;accent-color:#a6ffca}
+.interp-pair{display:grid;grid-template-columns:repeat(2,minmax(0,240px));gap:20px;justify-content:center;margin-top:14px}
+.interp-pair figure{margin:0;text-align:center}
+.interp-pair canvas{width:100%;height:auto;aspect-ratio:1;border:1px solid #45615a;image-rendering:pixelated;background:#071017}
+.interp-pair figcaption{margin:8px 0 0;font-size:13px}
+.zoom-wrap{position:relative;display:block;width:fit-content;max-width:100%;margin:0 auto}
+.zoom-btn{position:absolute;top:10px;right:10px;z-index:2;font-size:13px;padding:6px 10px;border-radius:8px;background:#0a1117d9;border:1px solid #3f6057;color:var(--mint);cursor:zoom-in;opacity:.9}
+.zoom-btn:hover,.zoom-btn:focus-visible{opacity:1;border-color:var(--mint)}
+img.zoomable{cursor:zoom-in}
+.zoom-dialog{width:96vw;max-width:96vw;height:94vh;max-height:94vh;padding:0;border:1px solid #45645b;border-radius:12px;background:#071017;color:#f0f5f3}
+.zoom-dialog::backdrop{background:rgba(0,0,0,.85)}
+.zoom-dialog[open]{display:flex;flex-direction:column}
+.zoom-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid #2c4545;font-size:14px}
+.zoom-bar .zoom-cap{color:#b8dbd5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.zoom-bar .btns{display:flex;gap:8px;flex:0 0 auto}
+.zoom-bar button{font-size:13px;padding:7px 12px}
+.zoom-stage{flex:1;overflow:auto;display:flex;align-items:center;justify-content:center;background:#0b151b}
+.zoom-stage img{max-width:100%;max-height:100%;object-fit:contain;cursor:zoom-in}
+.zoom-stage.full{display:block}
+.zoom-stage.full img{max-width:none;max-height:none;cursor:zoom-out}

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="TF-IDF search engine and content-based recommender for 2,550 TED Talks, with a live in-browser demo.">
 <title>TED Talks Search &amp; Recommendation — Mengxuan Shen</title>
-<link rel="stylesheet" href="../assets/project-study.css?v=5">
+<link rel="stylesheet" href="../assets/project-study.css?v=6">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -56,6 +56,6 @@ function run(){if(!db)return;const query=$('ted-query').value.trim();$('ted-resu
 <script>
 document.addEventListener('click',function(e){var b=e.target.closest('.chip-q');if(!b)return;var q=document.getElementById('ted-query');q.value=b.dataset.q;document.getElementById('ted-run').click();document.getElementById('live-demo').scrollIntoView({behavior:'smooth',block:'start'});});
 </script>
-<script src="../assets/project-ui.js?v=1" defer></script>
+<script src="../assets/project-ui.js?v=2" defer></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Two individual MATLAB labs: Lab 1 pixel filtering and resampling; Lab 2 eigenface face representation and histogram equalisation.">
 <title>Image Processing &amp; Eigenfaces — Mengxuan Shen</title>
-<link rel="stylesheet" href="../assets/project-study.css?v=5">
+<link rel="stylesheet" href="../assets/project-study.css?v=6">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -24,11 +24,27 @@
 <img src="../assets/covers/int302-lab2-histeq.png" alt="Low-contrast image, histogram-equalised result, histograms and CDF comparison" loading="lazy">
 <ul><li>Projecting faces onto 100 eigenfaces and reconstructing them</li><li>Nearest-neighbour identity matching on the weight vectors</li><li>Robustness to noise and brightness; CDF-based histogram equalisation</li></ul>
 <p class="result"><strong>Finding:</strong> a 100-number weight vector matched the test face, but strong noise and over-exposure broke matching; equalisation spreads a narrow intensity range across the full scale.</p>
-<div class="buttons"><button class="btn pdf-preview" type="button" data-pdf="../assets/INT302-Lab2-Report.pdf" data-title="Lab 2 report">Lab 2 report ↗</button><a class="btn" href="../assets/INT302-Lab2-MATLAB-Code.zip">Lab 2 code</a></div></article></div><section class="study-section"><h2>Try it: nearest-neighbour vs bilinear (Lab 1)</h2><div class="card"><label for="method">Interpolation <select id="method"><option value="nearest">Nearest-neighbor</option><option value="bilinear">Bilinear</option></select></label><canvas id="sampling" width="288" height="192" aria-label="Enlarged grayscale pattern showing the selected interpolation method"></canvas><p id="sampling-status" role="status"></p></div></section><p class="note"><strong>Source:</strong> MATLAB code for both labs is in the downloads above and on <a href="https://github.com/Shine574269/shine574269.github.io/tree/main/assets" target="_blank" rel="noopener noreferrer">GitHub</a>. Test images and the eigenface basis were supplied by the module.</p>
+<div class="buttons"><button class="btn pdf-preview" type="button" data-pdf="../assets/INT302-Lab2-Report.pdf" data-title="Lab 2 report">Lab 2 report ↗</button><a class="btn" href="../assets/INT302-Lab2-MATLAB-Code.zip">Lab 2 code</a></div></article></div><section class="study-section"><h2>Try it: nearest-neighbour vs bilinear (Lab 1)</h2><div class="card interp"><p>The same 12 × 12 test pattern enlarged 16× with each method. Use the slider to change the enlargement.</p>
+<label for="zoom">Enlargement: <strong id="zoom-val">16×</strong> <input id="zoom" type="range" min="4" max="24" step="2" value="16"></label>
+<div class="interp-pair"><figure><canvas id="c-nearest" width="192" height="192" aria-label="Pattern enlarged with nearest-neighbour interpolation"></canvas><figcaption><strong>Nearest-neighbour</strong><br>copies the closest pixel: blocky edges</figcaption></figure>
+<figure><canvas id="c-bilinear" width="192" height="192" aria-label="Pattern enlarged with bilinear interpolation"></canvas><figcaption><strong>Bilinear</strong><br>blends four neighbours: smoother edges</figcaption></figure></div></div></section><p class="note"><strong>Source:</strong> MATLAB code for both labs is in the downloads above and on <a href="https://github.com/Shine574269/shine574269.github.io/tree/main/assets" target="_blank" rel="noopener noreferrer">GitHub</a>. Test images and the eigenface basis were supplied by the module.</p>
 <nav class="project-return" aria-label="Return to portfolio"><a class="btn return-button" href="../index.html#projects">← Back to all projects</a></nav>
 <footer>© 2026 Mengxuan Shen · <a href="../index.html#contact">Contact</a> · <a href="../index.html#projects">All projects</a></footer>
 </main>
-<script>const canvas=document.getElementById('sampling'),ctx=canvas.getContext('2d'),choice=document.getElementById('method');const sample=(x,y)=>{x=Math.max(0,Math.min(11,x));y=Math.max(0,Math.min(11,y));return ((x-6)**2+(y-6)**2<18?210:35)+(x%3)*10;};function draw(){const image=ctx.createImageData(canvas.width,canvas.height),bilinear=choice.value==='bilinear';for(let y=0;y<canvas.height;y++)for(let x=0;x<canvas.width;x++){const sx=(x+.5)*12/canvas.width-.5,sy=(y+.5)*12/canvas.height-.5;let value;if(bilinear){const ix=Math.floor(sx),iy=Math.floor(sy),dx=sx-ix,dy=sy-iy;value=(1-dy)*((1-dx)*sample(ix,iy)+dx*sample(ix+1,iy))+dy*((1-dx)*sample(ix,iy+1)+dx*sample(ix+1,iy+1));}else value=sample(Math.round(sx),Math.round(sy));const i=(y*canvas.width+x)*4;image.data[i]=image.data[i+1]=image.data[i+2]=value;image.data[i+3]=255;}ctx.putImageData(image,0,0);document.getElementById('sampling-status').textContent=bilinear?'Bilinear: blends four neighboring samples for smoother transitions.':'Nearest-neighbor: preserves discrete sample values and block boundaries.';}choice.addEventListener('change',draw);draw();</script>
-<script src="../assets/project-ui.js?v=1" defer></script>
+<script>
+(function(){
+  const N=12, sample=(x,y)=>{x=Math.max(0,Math.min(N-1,x));y=Math.max(0,Math.min(N-1,y));return ((x-6)**2+(y-6)**2<18?210:35)+(x%3)*10;};
+  function draw(id,bilinear,k){const c=document.getElementById(id),ctx=c.getContext('2d');c.width=c.height=N*k;const img=ctx.createImageData(c.width,c.height);
+    for(let y=0;y<c.height;y++)for(let x=0;x<c.width;x++){const sx=(x+.5)/k-.5,sy=(y+.5)/k-.5;let v;
+      if(bilinear){const ix=Math.floor(sx),iy=Math.floor(sy),dx=sx-ix,dy=sy-iy;v=(1-dy)*((1-dx)*sample(ix,iy)+dx*sample(ix+1,iy))+dy*((1-dx)*sample(ix,iy+1)+dx*sample(ix+1,iy+1));}
+      else v=sample(Math.round(sx),Math.round(sy));
+      const i=(y*c.width+x)*4;img.data[i]=img.data[i+1]=img.data[i+2]=v;img.data[i+3]=255;}
+    ctx.putImageData(img,0,0);}
+  const z=document.getElementById('zoom'),zv=document.getElementById('zoom-val');
+  function update(){const k=+z.value;zv.textContent=k+'×';draw('c-nearest',false,k);draw('c-bilinear',true,k);}
+  z.addEventListener('input',update);update();
+})();
+</script>
+<script src="../assets/project-ui.js?v=2" defer></script>
 </body>
 </html>

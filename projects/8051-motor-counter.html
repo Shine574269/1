@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Register-level embedded C firmware for an AT89C51 that counts motor pulses and drives a multiplexed seven-segment display.">
 <title>8051 Motor Pulse Counter — Mengxuan Shen</title>
-<link rel="stylesheet" href="../assets/project-study.css?v=5">
+<link rel="stylesheet" href="../assets/project-study.css?v=6">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -34,6 +34,6 @@
 <footer>© 2026 Mengxuan Shen · <a href="../index.html#contact">Contact</a> · <a href="../index.html#projects">All projects</a></footer>
 </main>
 <script>const pulses=document.getElementById('pulses'),readout=document.getElementById('counter-readout');function update(){const count=Number(pulses.value),hz=Math.floor(count*1000/57),display=Math.min(9999,Math.floor(hz/100));readout.textContent=`${count} pulses → ${hz.toLocaleString('en-GB')} Hz (nominal) → display ${String(display).padStart(4,'0')}`;}pulses.addEventListener('input',update);update();</script>
-<script src="../assets/project-ui.js?v=1" defer></script>
+<script src="../assets/project-ui.js?v=2" defer></script>
 </body>
 </html>

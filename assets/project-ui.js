@@ -67,3 +67,48 @@
     trigger?.focus();
   });
 })();
+
+// Image zoom: an "Enlarge" button on every content image, opening a full-screen viewer.
+(() => {
+  const imgs = [...document.querySelectorAll('main figure img, main .lab > img')]
+    .filter(img => !img.closest('.document-cover'));
+  if (!imgs.length) return;
+  const dlg = document.createElement('dialog');
+  dlg.className = 'zoom-dialog';
+  dlg.setAttribute('aria-label', 'Enlarged image');
+  dlg.innerHTML = '<div class="zoom-bar"><span class="zoom-cap"></span><span class="btns"><button type="button" class="btn zoom-toggle">Actual size</button><button type="button" class="btn zoom-close" aria-label="Close enlarged image">Close ×</button></span></div><div class="zoom-stage"><img alt=""></div>';
+  document.body.append(dlg);
+  const stage = dlg.querySelector('.zoom-stage'), big = stage.querySelector('img'), toggle = dlg.querySelector('.zoom-toggle');
+  let opener;
+  const setFull = on => { stage.classList.toggle('full', on); toggle.textContent = on ? 'Fit to screen' : 'Actual size'; };
+  function open(img) {
+    opener = img;
+    big.src = img.currentSrc || img.src;
+    big.alt = img.alt;
+    const cap = img.closest('figure')?.querySelector('figcaption')?.textContent || img.alt || '';
+    dlg.querySelector('.zoom-cap').textContent = cap;
+    setFull(false);
+    dlg.showModal();
+    document.body.classList.add('preview-open');
+  }
+  imgs.forEach(img => {
+    img.classList.add('zoomable');
+    const wrap = document.createElement('span');
+    wrap.className = 'zoom-wrap';
+    img.parentNode.insertBefore(wrap, img);
+    wrap.append(img);
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'zoom-btn';
+    b.textContent = '⤢ Enlarge';
+    b.setAttribute('aria-label', 'Enlarge image' + (img.alt ? ': ' + img.alt : ''));
+    wrap.append(b);
+    b.addEventListener('click', () => open(img));
+    img.addEventListener('click', () => open(img));
+  });
+  toggle.addEventListener('click', () => setFull(!stage.classList.contains('full')));
+  big.addEventListener('click', () => setFull(!stage.classList.contains('full')));
+  dlg.querySelector('.zoom-close').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', e => { if (e.target === dlg || e.target === stage) dlg.close(); });
+  dlg.addEventListener('close', () => { document.body.classList.remove('preview-open'); opener?.focus?.(); });
+})();
