@@ -419,11 +419,21 @@
       .portrait-photo:before {
         display: none;
       }
-      .portrait-photo img {
+      .portrait-photo {
+        height: auto !important;
         width: 100%;
-        height: 100%;
-        object-fit: contain;
-        object-position: center;
+        max-width: 364px;
+        justify-self: center;
+        align-self: center;
+        display: block;
+        margin-inline: auto;
+      }
+      .portrait-photo img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 840 / 900;
+        object-fit: cover;
         background: #102430;
       }
       .portrait-photo .portrait-label {
@@ -681,7 +691,7 @@
           </div>
         </div>
         <div class="portrait portrait-photo">
-          <img alt="Portrait of Mengxuan Shen" loading="eager" src="assets/mengxuan-shen-portrait-uncropped.jpg" /><span class="portrait-label">MENGXUAN SHEN</span>
+          <img alt="Portrait of Mengxuan Shen" loading="eager" src="assets/mengxuan-shen-portrait-uncropped.jpg" width="840" height="900" /><span class="portrait-label">MENGXUAN SHEN</span>
         </div>
       </section>
 
