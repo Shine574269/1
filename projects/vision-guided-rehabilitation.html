@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Real-time visual feedback for a hand-rehabilitation robot: MediaPipe hand keypoints and position-based visual servoing in Python.">
 <title>Vision-Guided Robotic Hand Rehabilitation — Mengxuan Shen</title>
-<link rel="stylesheet" href="../assets/project-study.css?v=9">
+<link rel="stylesheet" href="../assets/project-study.css?v=10">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -17,14 +17,14 @@
 <p class="lead">Adding real-time visual feedback to a rehabilitation robot so it follows the patient’s actual hand position instead of a fixed path.</p>
 <dl class="facts"><div><dt>Role</dt><dd>Research assistant</dd></div><div><dt>Tools</dt><dd>Python · OpenCV · MediaPipe</dd></div><div><dt>Topics</dt><dd>Visual servoing · Camera calibration · HRI</dd></div></dl>
 </header>
-<figure class="hero-media"><img src="../assets/rehab-hand.svg" alt="Hand skeleton of 21 keypoints mapped from image to robot coordinates" loading="eager" fetchpriority="high"><figcaption>Hand keypoints tracked from the overhead camera and mapped into the robot frame (illustration drawn for this portfolio).</figcaption></figure>
+<figure class="hero-media"><img src="../assets/rehab-hand.svg" alt="Hand skeleton of 21 keypoints mapped from image to robot coordinates" loading="eager" fetchpriority="high"><figcaption>Hand keypoints tracked from the overhead camera and mapped into the robot frame (illustration drawn for this portfolio).</figcaption></figure><p class="source-note"><strong>Illustration, not an original project figure.</strong> Created for this portfolio with AI assistance to explain the method described in my CV.</p>
 <section class="overview" aria-label="Project summary">
 <article><h2>Challenge</h2><p>The robot previously ran fixed trajectories, so exercises drifted out of alignment whenever a patient shifted posture or relaxed their shoulders, and a therapist had to step in.</p></article>
 <article><h2>What I did</h2><p>Implemented hand keypoint detection with OpenCV and MediaPipe from an overhead camera, and designed a position-based visual servoing controller in Python that maps joint coordinates from image space to the robot frame via calibration matrices.</p></article>
 <article><h2>Outcome</h2><p>Visual feedback was integrated into the robot’s control loop, so the trajectory adjusts automatically when the subject moves, reducing the need for manual therapist intervention.</p></article>
 </section>
-<section class="study-section"><h2>How the loop works</h2><figure><img src="../assets/rehab-pipeline.svg" alt="Closed control loop from camera to robot" loading="lazy"><figcaption>Closed-loop visual feedback.</figcaption></figure></section><section class="study-section" id="hand-demo"><h2>Try it: real-time hand keypoints</h2>
-<p>The same kind of hand-landmark detection used in the project, running live in your browser with MediaPipe. Video stays on your device; nothing is uploaded.</p>
+<section class="study-section"><h2>How the loop works</h2><figure><img src="../assets/rehab-pipeline.svg" alt="Closed control loop from camera to robot" loading="lazy"><figcaption>Closed-loop visual feedback.</figcaption></figure><p class="source-note"><strong>Illustration, not an original project figure.</strong> Created for this portfolio with AI assistance to explain the method described in my CV.</p></section><section class="study-section" id="hand-demo"><h2>Try it: real-time hand keypoints</h2>
+<p>The same kind of hand-landmark detection used in the project, running live in your browser with MediaPipe. Video stays on your device; nothing is uploaded.</p><p class="source-note"><strong>Demo written for this portfolio, not the lab’s code.</strong> It uses Google’s open-source MediaPipe Hand Landmarker (Apache 2.0) to show the kind of tracking the project relied on; the original lab code and data are not public.</p>
 <div class="card hd-card"><button type="button" class="btn" id="hd-start">Start camera ▶</button>
 <div class="hd-wrap" hidden><video id="hd-video" playsinline muted></video><canvas id="hd-canvas"></canvas></div>
 <p id="hd-status" role="status" class="muted"></p></div></section>
