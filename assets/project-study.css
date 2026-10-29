@@ -120,3 +120,5 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;back
 .source-note{display:flex;gap:10px;align-items:flex-start;margin:-6px 0 22px;padding:10px 14px;border:1px dashed #4f6f66;border-radius:10px;background:#0f1d22;font-size:13px;line-height:1.6;color:#b8cdc8}
 .source-note::before{content:"ⓘ";color:var(--mint);font-weight:700;flex:0 0 auto}
 .source-note strong{color:#e0f3ec}
+.source-note{display:block;position:relative;padding:10px 14px 10px 36px}
+.source-note::before{position:absolute;left:13px;top:10px}
