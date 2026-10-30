@@ -170,3 +170,4 @@ main figure figcaption{margin:8px auto 0!important}
 }
 @media (min-width:761px){.labs.labs-natural .lab img{aspect-ratio:auto;padding:0}}
 figure.fig-narrow img{max-width:min(100%,620px)}
+.table-scroll+.buttons,table+.buttons,.study-section>.buttons{margin-top:22px}
