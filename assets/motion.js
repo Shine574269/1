@@ -178,3 +178,28 @@
   window.addEventListener("resize", update);
   update();
 })();
+
+/* Retry images that fail to load (flaky mobile networks, CDN redeploys) */
+(function () {
+  function retry(img) {
+    var n = +(img.dataset.retry || 0);
+    var src = img.getAttribute("src");
+    if (!src || n >= 3 || img.closest("dialog")) return;
+    img.dataset.retry = n + 1;
+    setTimeout(function () {
+      var base = src.replace(/([?&])r=\d+(&|$)/, "$1").replace(/[?&]$/, "");
+      img.src = base + (base.indexOf("?") < 0 ? "?" : "&") + "r=" + Date.now();
+    }, 600 * (n + 1));
+  }
+  window.addEventListener("error", function (e) {
+    if (e.target && e.target.tagName === "IMG") retry(e.target);
+  }, true);
+  function sweep() {
+    Array.prototype.forEach.call(document.images, function (img) {
+      if (img.complete && img.getAttribute("src") && !img.naturalWidth) retry(img);
+    });
+  }
+  window.addEventListener("load", sweep);
+  window.addEventListener("pageshow", function (e) { if (e.persisted) sweep(); });
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) sweep(); });
+})();
