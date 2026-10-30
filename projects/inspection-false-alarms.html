@@ -22,19 +22,19 @@
 </head>
 <body>
 <main>
-<a class="back" href="../index.html#projects">← All projects</a>
+<a class="back" href="../index.html#p-inspection-false-alarms">← All projects</a>
 <header class="project-header">
 <p class="eyebrow">Internship · Defect Analysis Intern · Jul – Oct 2024</p>
 <h1>Reducing False Alarms in Automated Inspection</h1>
 <p class="lead">Tracing why a new automated inspection system kept rejecting good parts, and fixing the image preprocessing.</p>
 </header>
 <figure class="hero-media"><img src="../assets/diagrams/falsealarm-chart.png?v=1" alt="Bar chart: lighting-induced false alarms fall from 100 to 55 after preprocessing" loading="eager" fetchpriority="high"><figcaption>Lighting-induced false alarms before and after the new preprocessing (relative values).</figcaption></figure><section class="study-section"><h2>How I investigated it</h2><ol class="steps"><li><h3>Spot the pattern</h3><p>A newly deployed inspection system for insulated tool handles was raising false alarms on about 30% of parts.</p></li><li><h3>Pull the evidence</h3><p>Extracted 200 misclassified images from the system database.</p></li><li><h3>Find the cause</h3><p>Histogram analysis showed brightness distributions differed between true defects and false positives, pointing to lighting.</p></li><li><h3>Test fixes</h3><p>Compared Gaussian blur, median filtering and bilateral filtering in a Python/OpenCV preprocessing pipeline.</p></li><li><h3>Confirm the result</h3><p>Adaptive histogram equalisation plus morphological closing cut lighting-induced false alarms by 45% in controlled tests on 150 samples.</p></li></ol></section><p class="note"><strong>Where this happened:</strong> Defect Analysis Intern, Hebei Jincheng Yuan Electric Power Tools Co., Ltd. The inspection images belong to the company and are not shown.</p>
-<nav class="project-return" aria-label="Return to portfolio"><a class="btn return-button" href="../index.html#projects">← Back to all projects</a></nav>
-<footer>© 2026 Mengxuan Shen · <a href="../index.html#contact">Contact</a> · <a href="../index.html#projects">All projects</a></footer>
+<nav class="project-return" aria-label="Return to portfolio"><a class="btn return-button" href="../index.html#p-inspection-false-alarms">← Back to all projects</a></nav>
+<footer>© 2026 Mengxuan Shen · <a href="../index.html#contact">Contact</a> · <a href="../index.html#p-inspection-false-alarms">All projects</a></footer>
 </main>
 
 <script src="../assets/project-ui.js?v=2" defer></script>
-<script src="../assets/rail.js?v=1" defer></script>
+<script src="../assets/rail.js?v=2" defer></script>
 <script src="../assets/motion.js?v=6" defer></script>
 </body>
 </html>

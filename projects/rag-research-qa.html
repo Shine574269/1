@@ -22,19 +22,19 @@
 </head>
 <body>
 <main>
-<a class="back" href="../index.html#projects">← All projects</a>
+<a class="back" href="../index.html#p-rag-research-qa">← All projects</a>
 <header class="project-header">
 <p class="eyebrow">NLP · Information retrieval · Research assistant</p>
 <h1>Retrieval-Augmented QA for Research Papers</h1>
 <p class="lead">Speeding up a research question-answering system with a two-stage hybrid retrieval pipeline.</p>
 </header>
 <figure class="hero-media"><img src="../assets/diagrams/rag-funnel.png?v=2" alt="Funnel from all abstracts through BM25 and Sentence-BERT/FAISS to top papers" loading="eager" fetchpriority="high"><figcaption>Schematic: two-stage retrieval narrows the candidate set.</figcaption></figure><section class="study-section"><h2>Before and after</h2><div class="compare"><div><h3>Before</h3><p>The question-answering system computed similarity against every research abstract one by one, so responses were slow.</p></div><div class="after"><h3>After</h3><p>BM25 quickly filters a keyword candidate set; Sentence-BERT embeddings in a FAISS index then re-rank it semantically. Responses got faster while relevant papers stayed in the top results.</p></div></div></section><section class="study-section"><h2>Why two stages?</h2><p>Lexical search is fast but misses paraphrases; dense embeddings understand meaning but are costly over a whole corpus. Running BM25 first keeps the expensive semantic step small.</p><figure><img src="../assets/diagrams/rag-pipeline.png?v=1" alt="Pipeline: question, BM25 filter, Sentence-BERT embeddings, FAISS re-ranking, top papers" loading="lazy"><figcaption>Query pipeline.</figcaption></figure></section><p class="note"><strong>Supervisor:</strong> Prof. Philipp Koehn, Johns Hopkins University (May – Sep 2023).</p>
-<nav class="project-return" aria-label="Return to portfolio"><a class="btn return-button" href="../index.html#projects">← Back to all projects</a></nav>
-<footer>© 2026 Mengxuan Shen · <a href="../index.html#contact">Contact</a> · <a href="../index.html#projects">All projects</a></footer>
+<nav class="project-return" aria-label="Return to portfolio"><a class="btn return-button" href="../index.html#p-rag-research-qa">← Back to all projects</a></nav>
+<footer>© 2026 Mengxuan Shen · <a href="../index.html#contact">Contact</a> · <a href="../index.html#p-rag-research-qa">All projects</a></footer>
 </main>
 
 <script src="../assets/project-ui.js?v=2" defer></script>
-<script src="../assets/rail.js?v=1" defer></script>
+<script src="../assets/rail.js?v=2" defer></script>
 <script src="../assets/motion.js?v=6" defer></script>
 </body>
 </html>

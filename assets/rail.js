@@ -54,7 +54,8 @@
   if (!isHome) {
     var li = document.createElement("li");
     li.className = "rail-back";
-    li.innerHTML = '<a href="../index.html#projects"><span class="rail-dot" aria-hidden="true">←</span><span class="rail-label">All projects</span></a>';
+    var slug = (location.pathname.split("/").pop() || "").replace(/\.html$/, "");
+    li.innerHTML = '<a href="../index.html#' + (slug ? "p-" + slug : "projects") + '"><span class="rail-dot" aria-hidden="true">←</span><span class="rail-label">All projects</span></a>';
     list.appendChild(li);
   }
   rail.appendChild(toggle);

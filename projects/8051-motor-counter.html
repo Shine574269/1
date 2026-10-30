@@ -22,7 +22,7 @@
 </head>
 <body>
 <main>
-<a class="back" href="../index.html#projects">← All projects</a>
+<a class="back" href="../index.html#p-8051-motor-counter">← All projects</a>
 <header class="project-header">
 <p class="eyebrow">Embedded systems · Individual coursework</p>
 <h1>8051 Motor Pulse Counter</h1>
@@ -42,12 +42,12 @@
 <div class="buttons"><a class="btn" href="https://github.com/Shine574269/shine574269.github.io/blob/main/assets/8051-motor-counter.c" target="_blank" rel="noopener noreferrer">View C source on GitHub ↗</a><a class="btn" href="../assets/8051-motor-counter-source.zip">Download Keil project</a><a class="btn" href="../assets/8051-motor-counter.c">Read the C source</a></div>
 
 </section>
-<nav class="project-return" aria-label="Return to portfolio"><a class="btn return-button" href="../index.html#projects">← Back to all projects</a></nav>
-<footer>© 2026 Mengxuan Shen · <a href="../index.html#contact">Contact</a> · <a href="../index.html#projects">All projects</a></footer>
+<nav class="project-return" aria-label="Return to portfolio"><a class="btn return-button" href="../index.html#p-8051-motor-counter">← Back to all projects</a></nav>
+<footer>© 2026 Mengxuan Shen · <a href="../index.html#contact">Contact</a> · <a href="../index.html#p-8051-motor-counter">All projects</a></footer>
 </main>
 <script>const pulses=document.getElementById('pulses'),readout=document.getElementById('counter-readout');function update(){const count=Number(pulses.value),hz=Math.floor(count*1000/57),display=Math.min(9999,Math.floor(hz/100));readout.textContent=`${count} pulses → ${hz.toLocaleString('en-GB')} Hz (nominal) → display ${String(display).padStart(4,'0')}`;}pulses.addEventListener('input',update);update();</script>
 <script src="../assets/project-ui.js?v=2" defer></script>
-<script src="../assets/rail.js?v=1" defer></script>
+<script src="../assets/rail.js?v=2" defer></script>
 <script src="../assets/motion.js?v=6" defer></script>
 </body>
 </html>
