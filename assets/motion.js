@@ -118,6 +118,18 @@
     });
     h.classList.add("rw");
     wordHeads.push(h);
+    // Once the heading is fully in view (and its card has finished fading in),
+    // light the words one after another. Time-based, so it never depends on how far the page can scroll.
+    var started = false;
+    var hio = new IntersectionObserver(function (es) {
+      if (started || !es[0].isIntersecting) return;
+      started = true; hio.disconnect();
+      var ws = h.querySelectorAll(".w");
+      Array.prototype.forEach.call(ws, function (w, i) {
+        setTimeout(function () { w.classList.add("on"); }, 500 + i * 320);
+      });
+    }, { threshold: 1, rootMargin: "0px 0px -15% 0px" });
+    hio.observe(h);
   });
 
   // ---------- Scroll-linked pieces (rAF throttled) ----------
@@ -142,15 +154,6 @@
       var p = (vh * 0.7 - r.top) / r.height;
       timeline.style.setProperty("--tl", Math.max(0, Math.min(1, p)).toFixed(3));
     }
-    wordHeads.forEach(function (h) {
-      var r = h.getBoundingClientRect();
-      // Words light up one by one as the heading travels from 85% to 45% of the viewport height.
-      var k = (vh * 0.85 - r.top) / (vh * 0.4);
-      if (y + vh >= document.documentElement.scrollHeight - 4) k = 1;
-      var ws = h.querySelectorAll(".w"), n = ws.length;
-      var lit = Math.max(0, Math.min(n, Math.floor(k * n + 0.0001)));
-      for (var i = 0; i < n; i++) ws[i].classList.toggle("on", i < lit);
-    });
     if (links.length) {
       var current = -1;
       sections.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < vh * 0.35) current = i; });
