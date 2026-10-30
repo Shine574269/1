@@ -162,3 +162,9 @@ main figure figcaption{margin:8px auto 0!important}
 .stat-strip:has(> :nth-child(6):last-child),.stat-strip:has(> :nth-child(3):last-child){grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 .stat-strip span{display:block;margin-top:6px;line-height:1.45}
+/* Lab cards: same image box height so text below lines up across both cards */
+@media (min-width:761px){
+.labs .lab img{aspect-ratio:5/2;height:auto;object-fit:contain;padding:6px}
+.labs{align-items:stretch}
+.labs .lab .buttons{margin-top:auto;padding-top:4px}
+}
