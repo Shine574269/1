@@ -10,18 +10,18 @@
 <path d="M145 120.0H166" stroke="#5b3fa0" stroke-width="2" marker-end="url(#a)"/>
 <rect x="169" y="80" width="123" height="80" rx="10" fill="#e2daf3" stroke="#5b3fa0" stroke-width="1.6"/>
 <text x="231" y="110" fill="#14232a" font-size="14" font-weight="700">BM25</text>
-<text x="231" y="142" fill="#4d6168" font-size="11.5">fast lexical filter</text>
+<text x="231" y="142" fill="#4d6168" font-size="10.5">fast lexical filter</text>
 <path d="M294 120.0H315" stroke="#5b3fa0" stroke-width="2" marker-end="url(#a)"/>
 <rect x="318" y="80" width="123" height="80" rx="10" fill="#e2daf3" stroke="#5b3fa0" stroke-width="1.6"/>
 <text x="380" y="110" fill="#14232a" font-size="14" font-weight="700">Sentence-BERT</text>
-<text x="380" y="142" fill="#4d6168" font-size="11.5">semantic embeddings</text>
+<text x="380" y="142" fill="#4d6168" font-size="10.5">semantic embeddings</text>
 <path d="M444 120.0H465" stroke="#5b3fa0" stroke-width="2" marker-end="url(#a)"/>
 <rect x="468" y="80" width="123" height="80" rx="10" fill="#e2daf3" stroke="#5b3fa0" stroke-width="1.6"/>
 <text x="529" y="110" fill="#14232a" font-size="14" font-weight="700">FAISS</text>
-<text x="529" y="142" fill="#4d6168" font-size="11.5">vector re-ranking</text>
+<text x="529" y="142" fill="#4d6168" font-size="10.5">vector re-ranking</text>
 <path d="M593 120.0H614" stroke="#5b3fa0" stroke-width="2" marker-end="url(#a)"/>
 <rect x="617" y="80" width="123" height="80" rx="10" fill="#e2daf3" stroke="#5b3fa0" stroke-width="1.6"/>
 <text x="678" y="110" fill="#14232a" font-size="14" font-weight="700">Top papers</text>
-<text x="678" y="142" fill="#4d6168" font-size="11.5">to the answer</text>
+<text x="678" y="142" fill="#4d6168" font-size="10.5">to the answer</text>
 <text x="380" y="220" fill="#4d6168" font-size="13">Replaces slow sequential similarity search over research abstracts</text>
 </g></svg>

@@ -7,22 +7,22 @@
 <rect x="20" y="80" width="160" height="80" rx="10" fill="#f4ddd0" stroke="#b4532a" stroke-width="1.6"/>
 <text x="100" y="102" fill="#14232a" font-size="14" font-weight="700">Misclassified</text>
 <text x="100" y="119" fill="#14232a" font-size="14" font-weight="700">images</text>
-<text x="100" y="142" fill="#4d6168" font-size="11.5">200 from database</text>
+<text x="100" y="142" fill="#4d6168" font-size="10.5">200 from database</text>
 <path d="M182 120.0H204" stroke="#b4532a" stroke-width="2" marker-end="url(#a)"/>
 <rect x="206" y="80" width="160" height="80" rx="10" fill="#f4ddd0" stroke="#b4532a" stroke-width="1.6"/>
 <text x="287" y="102" fill="#14232a" font-size="14" font-weight="700">Histogram</text>
 <text x="287" y="119" fill="#14232a" font-size="14" font-weight="700">analysis</text>
-<text x="287" y="142" fill="#4d6168" font-size="11.5">brightness gaps</text>
+<text x="287" y="142" fill="#4d6168" font-size="10.5">brightness gaps</text>
 <path d="M369 120.0H390" stroke="#b4532a" stroke-width="2" marker-end="url(#a)"/>
 <rect x="393" y="80" width="160" height="80" rx="10" fill="#f4ddd0" stroke="#b4532a" stroke-width="1.6"/>
 <text x="473" y="102" fill="#14232a" font-size="14" font-weight="700">Filter</text>
 <text x="473" y="119" fill="#14232a" font-size="14" font-weight="700">comparison</text>
-<text x="473" y="142" fill="#4d6168" font-size="11.5">Gaussian · median · bilateral</text>
+<text x="473" y="142" fill="#4d6168" font-size="10.5">Gaussian · median · bilateral</text>
 <path d="M556 120.0H576" stroke="#b4532a" stroke-width="2" marker-end="url(#a)"/>
 <rect x="580" y="80" width="160" height="80" rx="10" fill="#f4ddd0" stroke="#b4532a" stroke-width="1.6"/>
 <text x="660" y="102" fill="#14232a" font-size="14" font-weight="700">Adaptive EQ</text>
 <text x="660" y="119" fill="#14232a" font-size="14" font-weight="700">+ closing</text>
-<text x="660" y="142" fill="#4d6168" font-size="11.5">chosen pipeline</text>
+<text x="660" y="142" fill="#4d6168" font-size="10.5">chosen pipeline</text>
 <text x="380" y="215" fill="#b4532a" font-size="30" font-weight="800">−45%</text>
 <text x="380" y="240" fill="#4d6168" font-size="13">lighting-induced false alarms</text>
 <text x="380" y="275" fill="#4d6168" font-size="13">Controlled tests on 150 samples</text>

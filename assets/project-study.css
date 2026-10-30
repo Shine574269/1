@@ -129,3 +129,14 @@ figure img[src*=".svg"]{width:100%;height:auto}
 /* Key-facts cards: equal-width grid instead of ragged wrapping */
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
 .facts div{height:100%}
+.zoom-wrap:has(> img[src*="/diagrams/"]){width:100%}
+figure img[src*="/diagrams/"]{width:100%;height:auto}
+@media (max-width:650px){
+.study-section{padding:24px 0}
+.study-section figure{margin:18px 0}
+figcaption{margin:8px 0 6px}
+.zoom-btn{top:6px;right:6px;font-size:11px;padding:3px 7px;opacity:.85}
+.table-scroll+.buttons,table+.buttons,.buttons{margin-top:18px}
+.buttons{gap:10px}
+.buttons .btn{flex:1 1 auto;text-align:center;font-size:15px;padding:10px 14px}
+}

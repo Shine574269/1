@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Final-year thesis by Mengxuan Shen: a multi-head neural network that decides which mobile tasks to offload to an edge server.">
 <title>Multi-Head Learning for Edge Offloading — Mengxuan Shen</title>
-<link rel="stylesheet" href="../assets/project-study.css?v=14">
+<link rel="stylesheet" href="../assets/project-study.css?v=15">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -17,7 +17,7 @@
 <p class="lead">A neural network that decides which mobile tasks should run on the device and which should be sent to an edge server.</p>
 <dl class="facts"><div><dt>Role</dt><dd>Individual thesis</dd></div><div><dt>Tools</dt><dd>Python · TensorFlow / Keras</dd></div><div><dt>Topics</dt><dd>Multi-task learning · Edge AI</dd></div></dl>
 </header>
-<figure class="hero-media"><img src="../assets/mtfnn-results-chart.svg" alt="Line chart: five-head model accuracy above the single-head baseline for 2 to 8 users" loading="eager" fetchpriority="high"><figcaption>Decision accuracy of the five-head model versus the single-head baseline, 2–8 users.</figcaption></figure>
+<figure class="hero-media"><img src="../assets/diagrams/mtfnn-results-chart.png?v=1" alt="Line chart: five-head model accuracy above the single-head baseline for 2 to 8 users" loading="eager" fetchpriority="high"><figcaption>Decision accuracy of the five-head model versus the single-head baseline, 2–8 users.</figcaption></figure>
 <section class="overview" aria-label="Project summary">
 <article><h2>Challenge</h2><p>Finding the best offloading decision by exhaustive search grows exponentially with the number of users, which is too slow for real-time use.</p></article>
 <article><h2>What I did</h2><p>Extended a shared-backbone network with five specialised prediction heads, then designed an “enhanced gating” selector that picks a head using only information available at deployment.</p></article>
