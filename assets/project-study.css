@@ -168,3 +168,5 @@ main figure figcaption{margin:8px auto 0!important}
 .labs{align-items:stretch}
 .labs .lab .buttons{margin-top:auto;padding-top:4px}
 }
+@media (min-width:761px){.labs.labs-natural .lab img{aspect-ratio:auto;padding:0}}
+figure.fig-narrow img{max-width:min(100%,620px)}

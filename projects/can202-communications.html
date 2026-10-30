@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Individual MATLAB coursework in analogue communications: DSB-SC AM modulation and demodulation, a superheterodyne receiver that picks one of ten channels, and FM spectrum analysis.">
+<title>Analogue Communication Systems in MATLAB — Mengxuan Shen</title>
+<link rel="stylesheet" href="../assets/project-study.css?v=20">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Mengxuan Shen — Robotics Portfolio" />
+<meta property="og:title" content="Analogue Communication Systems in MATLAB — Mengxuan Shen" />
+<meta property="og:description" content="Individual MATLAB coursework in analogue communications: DSB-SC AM modulation and demodulation, a superheterodyne receiver that picks one of ten channels, and FM spectrum analysis." />
+<meta property="og:url" content="https://shine574269.github.io/projects/can202-communications.html" />
+<meta property="og:image" content="https://shine574269.github.io/assets/og/can202-communications.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="stylesheet" href="../assets/rail.css?v=1">
+<link rel="stylesheet" href="../assets/motion.css?v=5">
+<script>(function(d){if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("motion");setTimeout(function(){if(!window.__motionReady)d.classList.remove("motion")},3000)}})(document.documentElement)</script>
+</head>
+<body>
+<main>
+<a class="back" href="../index.html#p-can202-communications">← All projects</a>
+<header class="project-header">
+<p class="eyebrow">Signal processing · Individual coursework · 2025</p>
+<h1>Analogue Communication Systems in MATLAB</h1>
+<p class="lead">Modulating, transmitting and recovering audio in simulation: from a single DSB-SC link to a superheterodyne receiver that tunes one station out of ten.</p>
+<dl class="facts"><div><dt>Role</dt><dd>Individual</dd></div><div><dt>Tools</dt><dd>MATLAB · Signal Processing Toolbox</dd></div><div><dt>Module</dt><dd>Analogue &amp; Digital Communications</dd></div></dl>
+</header>
+<figure class="hero-media"><img src="../assets/diagrams/can202-pipeline.png?v=1" alt="Receiver chain: ten DSB-SC channels, RF filter at 220 kHz, first mixer, 50 kHz IF filter, second mixer, low-pass filter and resampling to 10 kHz" loading="eager" fetchpriority="high"><figcaption>The superheterodyne receiver I built in Question 2.</figcaption></figure>
+<div class="stat-strip"><div><strong>600 kHz</strong><span>DSB-SC carrier for the audio link</span></div><div><strong>10</strong><span>stations sharing 100–280 kHz</span></div><div><strong>0.9997</strong><span>correlation with the matched track (all others below 0.1)</span></div></div>
+<section class="overview" aria-label="Project summary">
+<article><h2>Challenge</h2><p>Send audio over a radio carrier and get it back intact, then pick a single station out of a crowded band.</p></article>
+<article><h2>What I did</h2><p>Wrote the full chain in MATLAB: resampling, modulation, coherent demodulation and FIR filtering, then a two-stage superheterodyne receiver and an FM analysis.</p></article>
+<article><h2>Outcome</h2><p>The recovered audio matched the original, and the receiver identified the correct track (004) out of ten by cross-correlation.</p></article>
+</section>
+<div class="labs labs-natural">
+<article class="lab"><span class="tag">Q1 · DSB-SC AM</span><h2>Modulate and recover audio</h2>
+<img src="../assets/covers/can202-dsbsc-time.png" alt="Time-domain DSB-SC signal: the audio envelope riding on a 600 kHz carrier" loading="lazy">
+<ul><li>Nyquist check: the 8,192 Hz sample allows a 4,096 Hz bandwidth</li><li>Resampled to about 1.21 MHz so a 600 kHz carrier causes no aliasing</li><li>Coherent detection, then a 1,001-tap FIR low-pass filter</li><li>Part B: carrier band-pass filtered out of a sawtooth wave</li></ul>
+<p class="result"><strong>Finding:</strong> after filtering and downsampling, the recovered audio matched the original spectrum and played back cleanly.</p></article>
+<article class="lab"><span class="tag">Q2 · Superheterodyne receiver</span><h2>Tune one station out of ten</h2>
+<img src="../assets/covers/can202-soundtrack-spectrum.png" alt="Spectrum of the received signal showing ten DSB-SC channels between 100 and 280 kHz" loading="lazy">
+<ul><li>Identified ten 20 kHz-wide channels; occupied bandwidth ≈ 185 kHz</li><li>RF filter at 220 kHz → mixer to a 50 kHz IF → IF filter</li><li>Second mixer and low-pass filter back to audio at 10 kHz</li><li>Matched the result against ten original tracks with cross-correlation</li></ul>
+<p class="result"><strong>Finding:</strong> track 004 scored 0.9997; all nine other tracks scored below 0.1.</p></article>
+</div>
+<section class="study-section"><h2>Inside the receiver</h2>
+<div class="gallery">
+<figure><img src="../assets/covers/can202-mixer1.png" alt="Spectrum after the first mixer, normalised in dB" loading="lazy"><figcaption>After the first mixer: the chosen station moves to ±50 kHz.</figcaption></figure>
+<figure><img src="../assets/covers/can202-baseband.png" alt="Baseband output spectrum within ±5 kHz" loading="lazy"><figcaption>Baseband output: the recovered music within ±5 kHz.</figcaption></figure>
+</div>
+</section>
+<section class="study-section"><h2>FM analysis (Q3)</h2>
+<p>For a 500 kHz carrier, 10 kHz tone and β = 3.2, I derived the theoretical spectrum from Bessel functions, then simulated FM generation, differentiation with envelope detection, a hard limiter and band-pass reconstruction.</p>
+<figure class="fig-narrow"><img src="../assets/covers/can202-bessel.png" alt="Bessel coefficients J_n(3.2) for harmonics −10 to 10" loading="lazy"><figcaption>Theoretical sideband amplitudes J<sub>n</sub>(3.2).</figcaption></figure>
+</section>
+<section id="resources" class="study-section">
+<h2>Reports &amp; source</h2>
+<div class="document-grid"><article class="document-card"><button class="document-cover" type="button" data-pdf="../assets/CAN202_Communications_Report.pdf" data-title="Coursework report" aria-label="Preview Coursework report"><img loading="lazy" src="../assets/document-previews/can202rep01.jpg" alt=""></button><div><h3>Coursework report</h3><p>Derivations, code walkthroughs and every plot for Q1–Q3 (78 pages).</p><button class="btn pdf-preview" type="button" data-pdf="../assets/CAN202_Communications_Report.pdf" data-title="Coursework report">Preview PDF ↗</button></div></article></div>
+<div class="buttons"><a class="btn" href="../assets/CAN202-MATLAB-Code.zip">Download MATLAB code</a><a class="btn" href="https://github.com/Shine574269/shine574269.github.io/tree/main/assets" target="_blank" rel="noopener noreferrer">Files on GitHub ↗</a></div>
+<p class="attribution">The Q1 audio is MATLAB’s built-in <code>handel</code> sample. The Q2 test signals were provided by the module and are not included in the download.</p>
+</section>
+<nav class="project-return" aria-label="Return to portfolio"><a class="btn return-button" href="../index.html#p-can202-communications">← Back to all projects</a></nav>
+<footer>© 2026 Mengxuan Shen · <a href="../index.html#contact">Contact</a> · <a href="../index.html#p-can202-communications">All projects</a></footer>
+</main>
+<script src="../assets/project-ui.js?v=2" defer></script>
+<script src="../assets/rail.js?v=2" defer></script>
+<script src="../assets/motion.js?v=6" defer></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<svg width="760" height="245" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 245" role="img" aria-labelledby="t d">
+<title id="t">Superheterodyne receiver chain</title><desc id="d">Ten DSB-SC channels; an RF band-pass filter selects the 220 kHz channel, a first mixer shifts it to a 50 kHz intermediate frequency, an IF filter cleans it, a second mixer and low-pass filter recover the audio, which is resampled to 10 kHz.</desc>
+<rect width="760" height="245" fill="#e8f3f5"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1f6f84"/></marker></defs>
+<g font-family="Inter,system-ui,Arial,sans-serif" text-anchor="middle">
+<text x="380" y="44" fill="#1f6f84" font-size="12" letter-spacing="2" font-weight="700">SUPERHETERODYNE RECEIVER</text>
+<g fill="#d3e9ee" stroke="#1f6f84" stroke-width="1.6">
+<rect x="14" y="80" width="112" height="80" rx="10"/><rect x="140" y="80" width="112" height="80" rx="10"/><rect x="266" y="80" width="112" height="80" rx="10"/><rect x="392" y="80" width="112" height="80" rx="10"/><rect x="518" y="80" width="112" height="80" rx="10"/><rect x="644" y="80" width="104" height="80" rx="10"/>
+</g>
+<g fill="#14232a" font-size="13.5" font-weight="700">
+<text x="70" y="110">10 channels</text><text x="196" y="110">RF filter</text><text x="322" y="110">Mixer 1</text><text x="448" y="110">IF filter</text><text x="574" y="110">Mixer 2</text><text x="696" y="110">Low-pass</text>
+</g>
+<g fill="#4d6168" font-size="10.5">
+<text x="70" y="142">100–280 kHz</text><text x="196" y="142">select 220 kHz</text><text x="322" y="142">LO 170 kHz</text><text x="448" y="142">50 kHz ± 10 kHz</text><text x="574" y="142">LO 50 kHz</text><text x="696" y="142">resample 10 kHz</text>
+</g>
+<g stroke="#1f6f84" stroke-width="2" marker-end="url(#a)"><path d="M127 120H137"/><path d="M253 120H263"/><path d="M379 120H389"/><path d="M505 120H515"/><path d="M631 120H641"/></g>
+<text x="380" y="215" fill="#4d6168" font-size="13">Recovered track matched the original with correlation 0.9997</text>
+</g></svg>
