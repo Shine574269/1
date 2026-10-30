@@ -17,7 +17,7 @@ Personal portfolio of Mengxuan Shen, MSc Robotics student at the University of M
 | [Multi-head learning for edge offloading](https://shine574269.github.io/projects/memtl-edge-computing.html) | Deep learning, edge AI | [code + thesis](https://github.com/Shine574269/mengxuan-memtl-edge-computing) |
 | [Image processing & eigenfaces](https://shine574269.github.io/projects/int302-image-processing.html) | Computer vision, MATLAB | [MATLAB code](assets/) |
 | [8051 motor pulse counter](https://shine574269.github.io/projects/8051-motor-counter.html) | Embedded C | [C source](assets/8051-motor-counter.c) |
-| [Analogue communication systems in MATLAB](https://shine574269.github.io/projects/can202-communications.html) | Signal processing, MATLAB | [MATLAB code](assets/CAN202-MATLAB-Code.zip) |
+| [Analogue communication systems in MATLAB](https://shine574269.github.io/projects/can202-communications.html) | Signal processing, MATLAB | [Code repository](https://github.com/Shine574269/mengxuan-can202-communications) |
 | [Modelling momentum in tennis (MCM 2024)](https://shine574269.github.io/projects/mcm-tennis-momentum.html) | Mathematical modelling | [paper](assets/MCM_2024_Team2405303_Tennis_Momentum.pdf) |
 | [TED Talks search & recommendation](https://shine574269.github.io/projects/ted-retrieval.html) | Information retrieval | [repo](https://github.com/Shine574269/mengxuan-ted-retrieval) |
 | [DailySense](https://shine574269.github.io/projects/dailysense.html) | Android, UI design | [repo](https://github.com/Shine574269/mengxuan-dailysense) |
