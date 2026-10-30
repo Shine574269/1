@@ -1,0 +1,69 @@
+/* Collapsible section rail on the left edge (built by rail.js). */
+.rail {
+  --rail-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  position: fixed; left: 16px; top: 50%; z-index: 45;
+  transform: translate(-14px, -50%); opacity: 0; pointer-events: none;
+  transition: opacity 0.4s var(--rail-ease), transform 0.5s var(--rail-ease);
+  padding: 6px;
+  background: rgba(14, 26, 33, 0.86);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border: 1px solid #2a3f44; border-radius: 16px;
+  box-shadow: 0 16px 40px -24px rgba(0, 0, 0, 0.9);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  max-height: calc(100vh - 32px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none;
+}
+.rail::-webkit-scrollbar { display: none; }
+.rail.shown { opacity: 1; transform: translate(0, -50%); pointer-events: auto; }
+.rail-toggle {
+  display: flex; align-items: center; gap: 10px; width: 100%;
+  padding: 8px; margin: 0; border: 0; border-radius: 10px; background: transparent;
+  color: #a6ffca; font-family: inherit; font-weight: 600; font-size: 12px; line-height: 1; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;
+  transition: background-color 0.3s var(--rail-ease);
+}
+.rail-toggle:hover { background: rgba(166, 255, 202, 0.08); }
+.rail-toggle:focus-visible, .rail a:focus-visible { outline: 2px solid #a6ffca; outline-offset: 2px; }
+.rail-chev {
+  width: 14px; height: 14px; flex: 0 0 14px; position: relative;
+  transition: transform 0.4s var(--rail-ease);
+}
+.rail-chev::before {
+  content: ""; position: absolute; left: 3px; top: 3px; width: 6px; height: 6px;
+  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg);
+}
+.rail.open .rail-chev { transform: rotate(180deg); }
+.rail ol { list-style: none; margin: 4px 0 0; padding: 0; }
+.rail li { margin: 0; }
+.rail a {
+  display: flex; align-items: center; gap: 10px; padding: 8px; border-radius: 10px;
+  color: #9fb4b4; font-size: 13px; line-height: 1.2; text-decoration: none; white-space: nowrap;
+  transition: background-color 0.3s var(--rail-ease), color 0.3s var(--rail-ease);
+}
+.rail a:hover { background: rgba(166, 255, 202, 0.08); color: #e6f3ef; }
+.rail-dot {
+  width: 14px; height: 14px; flex: 0 0 14px; display: grid; place-items: center;
+  color: #a6ffca; font-size: 12px; position: relative;
+}
+.rail-dot:empty::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid #5d8278;
+  transition: background-color 0.3s var(--rail-ease), border-color 0.3s var(--rail-ease), transform 0.3s var(--rail-ease);
+}
+.rail a.active { color: #a6ffca; }
+.rail a.active .rail-dot:empty::before { background: #a6ffca; border-color: #a6ffca; transform: scale(1.25); }
+.rail-back { margin-top: 4px; padding-top: 4px; border-top: 1px solid #22353a; }
+
+/* Collapsed: icons only. Expanded: labels slide in. */
+.rail .rail-title, .rail .rail-label { display: none; }
+.rail.open { width: 220px; }
+.rail.open .rail-title, .rail.open .rail-label { display: inline; animation: rail-in 0.35s var(--rail-ease) both; }
+@keyframes rail-in { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: none; } }
+
+/* Narrower screens: collapse to a small tab on the left edge so it never covers the text. */
+@media (max-width: 1259px) {
+  .rail { left: 0; border-left: 0; border-radius: 0 14px 14px 0; padding: 4px; }
+  .rail:not(.open) ol { display: none; }
+  .rail:not(.open) .rail-toggle { padding: 12px 6px; }
+  .rail.open { width: min(240px, calc(100vw - 48px)); padding: 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rail, .rail * { transition: none !important; animation: none !important; }
+}

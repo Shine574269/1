@@ -679,13 +679,14 @@
       }
       /* Multi-image card previews (projects without a video) */
       .project-art.slides { position: relative; }
-      .project-art.slides img.slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+      .project-art.slides img.slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
       .project-art.slides img.slide.on { opacity: 1; }
       .slide-dots { position: absolute; right: 10px; bottom: 10px; display: flex; gap: 6px; z-index: 2; padding: 4px 7px; border-radius: 999px; background: rgba(10, 17, 23, 0.35); }
       .slide-dots i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255, 255, 255, 0.55); transition: background-color 0.3s, transform 0.3s; }
       .slide-dots i.on { background: #fff; transform: scale(1.25); }
     </style>
-  <link rel="stylesheet" href="assets/motion.css?v=5">
+  <link rel="stylesheet" href="assets/rail.css?v=1">
+<link rel="stylesheet" href="assets/motion.css?v=5">
 <script>(function(d){if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("motion");setTimeout(function(){if(!window.__motionReady)d.classList.remove("motion")},3000)}})(document.documentElement)</script>
 </head>
   <body>
@@ -1096,13 +1097,14 @@
             imgs[k].classList.remove("on"); if (dots[k]) dots[k].classList.remove("on");
             k = i; imgs[k].classList.add("on"); if (dots[k]) dots[k].classList.add("on");
           }
-          function start() { if (!timer) timer = setTimeout(function tick() { show((k + 1) % imgs.length); timer = setTimeout(tick, 3200); }, 1800 + (n % 3) * 700); }
+          function start() { if (!timer) timer = setTimeout(function tick() { show((k + 1) % imgs.length); timer = setTimeout(tick, 2000); }, 900 + (n % 3) * 400); }
           function stop() { clearTimeout(timer); timer = null; }
           if (!("IntersectionObserver" in window)) { start(); return; }
           new IntersectionObserver(function (es) { es[0].isIntersecting ? start() : stop(); }, { threshold: 0.4 }).observe(card);
         });
       })();
     </script>
-  <script src="assets/motion.js?v=6" defer></script>
+  <script src="assets/rail.js?v=1" defer></script>
+<script src="assets/motion.js?v=6" defer></script>
 </body>
 </html>
