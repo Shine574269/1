@@ -502,7 +502,7 @@
         flex: 1 1 320px;
         min-width: 0;
       }
-      .callout > .btn {
+      .callout .btn {
         flex: 0 0 auto;
         display: inline-flex;
         align-items: center;
@@ -516,13 +516,13 @@
         font-size: 14px;
         line-height: 1.25;
       }
-      .callout > .btn.primary {
+      .callout .btn.primary {
         white-space: nowrap;
       }
-      .callout > #copy-email {
+      .callout #copy-email {
         white-space: nowrap;
       }
-      .callout > .btn.primary span {
+      .callout .btn.primary span {
         display: inline-block;
       }
       @media (max-width: 650px) {
@@ -535,7 +535,7 @@
           flex: 1 1 100%;
           margin-bottom: 6px;
         }
-        .callout > .btn {
+        .callout .btn {
           width: auto;
           flex: 0 1 auto;
           font-size: 13px;
@@ -662,6 +662,19 @@
       .credits-block a { color: var(--mint); }
       .footer a { margin-left: 0; }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn:hover, .project:hover .project-art img, .project:hover .project-art video { transform: none; } }
+      /* Mobile refinements */
+      .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+      @media (max-width: 720px) {
+        .skill { display: grid; grid-template-columns: 32px 1fr; column-gap: 12px; align-items: center; padding: 18px 20px; }
+        .skill .symbol { line-height: 1; text-align: center; }
+        .skill .symbol { margin: 0 !important; }
+        .skill h3 { margin: 0 !important; }
+        .skill p { grid-column: 1 / -1; margin-top: 12px; }
+        .project-art.wide-art { height: auto !important; aspect-ratio: 16 / 9; }
+        .project-art.wide-art img { width: 100%; height: 100%; object-fit: contain; }
+        .contact-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%; }
+        .contact-actions .btn { width: 100%; margin: 0; padding-left: 6px; padding-right: 6px; text-align: center; justify-content: center; white-space: nowrap; font-size: 14px; }
+      }
     </style>
   </head>
   <body>
@@ -984,7 +997,7 @@
               </div>
             </article>
             <article class="project">
-              <a class="project-art " href="projects/cpt205-opengl.html" tabindex="-1" aria-hidden="true"><img src="assets/covers/opengl-day-night-16x9.jpg" alt="" class="cover" loading="lazy" /></a>
+              <a class="project-art wide-art" href="projects/cpt205-opengl.html" tabindex="-1" aria-hidden="true"><img src="assets/covers/opengl-day-night-16x9.jpg" alt="" class="cover" loading="lazy" /></a>
               <div class="project-body">
                 <div class="number">COMPUTER GRAPHICS · 2024</div>
                 <h3>OpenGL Interactive Birthday Card</h3>
@@ -1006,8 +1019,8 @@
               <p>Open to graduate roles and research opportunities in robotics, perception and autonomous systems.</p>
               <p class="email-line">shenmengxuan984@gmail.com</p>
             </div>
-            <a class="btn primary" href="mailto:shenmengxuan984@gmail.com?subject=Portfolio%20enquiry">Email me ↗</a
-            ><button class="btn" id="copy-email" title="Copy email address" type="button">Copy email</button><a class="btn" href="https://www.linkedin.com/in/mengxuan-shen-88a547360/" rel="noopener noreferrer" target="_blank">LinkedIn ↗</a>
+            <div class="contact-actions"><a class="btn primary" href="mailto:shenmengxuan984@gmail.com?subject=Portfolio%20enquiry">Email me ↗</a
+            ><button class="btn" id="copy-email" title="Copy email address" type="button">Copy email</button><a class="btn" href="https://www.linkedin.com/in/mengxuan-shen-88a547360/" rel="noopener noreferrer" target="_blank">LinkedIn ↗</a></div>
           </div>
         </div>
       </section>
