@@ -155,3 +155,10 @@ main figure figcaption{margin:8px auto 0!important}
 .study-section figure{margin:16px 0}
 .gallery figure{margin:0!important}
 }
+/* Stat cards: even rows (4 → 4 or 2×2, 6 → 3×2 or 2×3), compact labels */
+.stat-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:700px){
+.stat-strip:has(> :nth-child(4):last-child){grid-template-columns:repeat(4,minmax(0,1fr))}
+.stat-strip:has(> :nth-child(6):last-child),.stat-strip:has(> :nth-child(3):last-child){grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+.stat-strip span{display:block;margin-top:6px;line-height:1.45}
