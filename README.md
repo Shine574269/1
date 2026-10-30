@@ -20,7 +20,7 @@ Personal portfolio of Mengxuan Shen, MSc Robotics student at the University of M
 | [Modelling momentum in tennis (MCM 2024)](https://shine574269.github.io/projects/mcm-tennis-momentum.html) | Mathematical modelling | [paper](assets/MCM_2024_Team2405303_Tennis_Momentum.pdf) |
 | [TED Talks search & recommendation](https://shine574269.github.io/projects/ted-retrieval.html) | Information retrieval | [repo](https://github.com/Shine574269/mengxuan-ted-retrieval) |
 | [DailySense](https://shine574269.github.io/projects/dailysense.html) | Android, UI design | [repo](https://github.com/Shine574269/mengxuan-dailysense) |
-| [Hospital Escape (3D escape room)](https://shine574269.github.io/projects/hospital-escape.html) | Unity 3D, UI | [report](assets/CPT306_Hospital_Escape_Report_Public.pdf) |
+| [Hospital Escape (3D escape room)](https://shine574269.github.io/projects/hospital-escape.html) | Unity 3D, UI | [repo](https://github.com/Shine574269/mengxuan-hospital-escape) |
 | [Ground-Air Dungeon Shooter](https://shine574269.github.io/projects/ground-air-dungeon-shooter.html) | Unity, C# | [repo](https://github.com/Shine574269/mengxuan-unity-dungeon-shooter) |
 | [AIVA — AI life steward app](https://shine574269.github.io/projects/aiva-app-design.html) | Interaction design | [repo](https://github.com/Shine574269/mengxuan-aiva-design) |
 | [OpenGL interactive birthday card](https://shine574269.github.io/projects/cpt205-opengl.html) | C++, OpenGL | [source](https://github.com/Shine574269/mengxuan-cpt205-opengl/blob/main/birthday-card.cpp) |
