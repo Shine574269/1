@@ -677,6 +677,13 @@
         .contact-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%; }
         .contact-actions .btn { width: 100%; margin: 0; padding-left: 6px; padding-right: 6px; text-align: center; justify-content: center; white-space: nowrap; font-size: 14px; }
       }
+      /* Multi-image card previews (projects without a video) */
+      .project-art.slides { position: relative; }
+      .project-art.slides img.slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+      .project-art.slides img.slide.on { opacity: 1; }
+      .slide-dots { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); display: flex; gap: 6px; z-index: 2; padding: 4px 7px; border-radius: 999px; background: rgba(10, 17, 23, 0.35); }
+      .slide-dots i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255, 255, 255, 0.55); transition: background-color 0.3s, transform 0.3s; }
+      .slide-dots i.on { background: #fff; transform: scale(1.25); }
     </style>
   <link rel="stylesheet" href="assets/motion.css?v=5">
 <script>(function(d){if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("motion");setTimeout(function(){if(!window.__motionReady)d.classList.remove("motion")},3000)}})(document.documentElement)</script>
@@ -843,7 +850,7 @@
                     <h3 class="group-title">Robotics, vision &amp; embedded systems</h3>
           <div class="projects">
             <article class="project">
-              <a class="project-art paper" style="background:#eaf6f0" href="projects/vision-guided-rehabilitation.html" tabindex="-1" aria-hidden="true"><img src="assets/diagrams/rehab-hand.png?v=1" alt="" class="contain" loading="lazy" /></a>
+              <a class="project-art paper slides" style="background:#eaf6f0" href="projects/vision-guided-rehabilitation.html" tabindex="-1" aria-hidden="true"><img src="assets/diagrams/rehab-hand.png?v=1" alt="" class="contain slide on" loading="lazy" /><img src="assets/diagrams/rehab-pipeline.png?v=1" alt="" class="contain slide" loading="lazy" /><span class="slide-dots" aria-hidden="true"><i></i><i></i></span></a>
               <div class="project-body">
                 <div class="number">ROBOTICS RESEARCH · 2024–25</div>
                 <h3>Vision-Guided Robotic Hand Rehabilitation</h3>
@@ -863,7 +870,7 @@
               </div>
             </article>
             <article class="project">
-              <a class="project-art paper" style="background:#f6f1e8" href="projects/weld-inspection.html" tabindex="-1" aria-hidden="true"><img src="assets/diagrams/weld-illustration.png?v=1" alt="" class="contain" loading="lazy" /></a>
+              <a class="project-art paper slides" style="background:#f6f1e8" href="projects/weld-inspection.html" tabindex="-1" aria-hidden="true"><img src="assets/diagrams/weld-illustration.png?v=1" alt="" class="contain slide on" loading="lazy" /><img src="assets/diagrams/weld-pipeline.png?v=1" alt="" class="contain slide" loading="lazy" /><span class="slide-dots" aria-hidden="true"><i></i><i></i></span></a>
               <div class="project-body">
                 <div class="number">INDUSTRIAL VISION · INTERNSHIP 2025</div>
                 <h3>Weld Seam Defect Pre-screening</h3>
@@ -873,7 +880,7 @@
               </div>
             </article>
             <article class="project">
-              <a class="project-art paper" style="background:#fbf0ea" href="projects/inspection-false-alarms.html" tabindex="-1" aria-hidden="true"><img src="assets/diagrams/falsealarm-chart.png?v=1" alt="" class="contain" loading="lazy" /></a>
+              <a class="project-art paper slides" style="background:#fbf0ea" href="projects/inspection-false-alarms.html" tabindex="-1" aria-hidden="true"><img src="assets/diagrams/falsealarm-chart.png?v=1" alt="" class="contain slide on" loading="lazy" /><img src="assets/diagrams/falsealarm-pipeline.png?v=1" alt="" class="contain slide" loading="lazy" /><span class="slide-dots" aria-hidden="true"><i></i><i></i></span></a>
               <div class="project-body">
                 <div class="number">INDUSTRIAL VISION · INTERNSHIP 2024</div>
                 <h3>Reducing False Alarms in Automated Inspection</h3>
@@ -883,7 +890,7 @@
               </div>
             </article>
             <article class="project">
-              <a class="project-art paper" href="projects/int302-image-processing.html" tabindex="-1" aria-hidden="true"><img src="assets/covers/int302-lab1-median.png" alt="" class="contain" loading="lazy" /></a>
+              <a class="project-art paper slides" href="projects/int302-image-processing.html" tabindex="-1" aria-hidden="true"><img src="assets/covers/int302-lab1-median.png" alt="" class="contain slide on" loading="lazy" /><img src="assets/covers/int302-lab2-histeq.png" alt="" class="contain slide" loading="lazy" /><span class="slide-dots" aria-hidden="true"><i></i><i></i></span></a>
               <div class="project-body">
                 <div class="number">COMPUTER VISION · 2026</div>
                 <h3>Image Processing &amp; Eigenfaces</h3>
@@ -907,7 +914,7 @@
           <h3 class="group-title">Machine learning &amp; research</h3>
           <div class="projects">
             <article class="project">
-              <a class="project-art paper" href="projects/memtl-edge-computing.html" tabindex="-1" aria-hidden="true"><img src="assets/covers/memtl-architecture.png" alt="" class="contain" loading="lazy" /></a>
+              <a class="project-art paper slides" href="projects/memtl-edge-computing.html" tabindex="-1" aria-hidden="true"><img src="assets/covers/memtl-architecture.png" alt="" class="contain slide on" loading="lazy" /><img src="assets/diagrams/mtfnn-results-chart.png?v=1" alt="" class="contain slide" loading="lazy" /><span class="slide-dots" aria-hidden="true"><i></i><i></i></span></a>
               <div class="project-body">
                 <div class="number">FINAL-YEAR THESIS · 2026</div>
                 <h3>Multi-Head Learning for Edge Offloading</h3>
@@ -917,7 +924,7 @@
               </div>
             </article>
             <article class="project">
-              <a class="project-art paper" style="background:#eaf2fb" href="projects/xray-enhancement.html" tabindex="-1" aria-hidden="true"><img src="assets/diagrams/xray-unet-arch.png?v=1" alt="" class="contain" loading="lazy" /></a>
+              <a class="project-art paper slides" style="background:#eaf2fb" href="projects/xray-enhancement.html" tabindex="-1" aria-hidden="true"><img src="assets/diagrams/xray-unet-arch.png?v=1" alt="" class="contain slide on" loading="lazy" /><img src="assets/diagrams/xray-unet.png?v=1" alt="" class="contain slide" loading="lazy" /><span class="slide-dots" aria-hidden="true"><i></i><i></i></span></a>
               <div class="project-body">
                 <div class="number">MEDICAL IMAGING · RESEARCH 2024</div>
                 <h3>Chest X-ray Enhancement with U-Net</h3>
@@ -927,7 +934,7 @@
               </div>
             </article>
             <article class="project">
-              <a class="project-art paper" style="background:#f1edf9" href="projects/rag-research-qa.html" tabindex="-1" aria-hidden="true"><img src="assets/diagrams/rag-funnel.png?v=2" alt="" class="contain" loading="lazy" /></a>
+              <a class="project-art paper slides" style="background:#f1edf9" href="projects/rag-research-qa.html" tabindex="-1" aria-hidden="true"><img src="assets/diagrams/rag-funnel.png?v=2" alt="" class="contain slide on" loading="lazy" /><img src="assets/diagrams/rag-pipeline.png?v=1" alt="" class="contain slide" loading="lazy" /><span class="slide-dots" aria-hidden="true"><i></i><i></i></span></a>
               <div class="project-body">
                 <div class="number">NLP · RESEARCH WITH JOHNS HOPKINS · 2023</div>
                 <h3>Retrieval-Augmented QA for Research Papers</h3>
@@ -937,7 +944,7 @@
               </div>
             </article>
             <article class="project">
-              <a class="project-art paper" href="projects/mcm-tennis-momentum.html" tabindex="-1" aria-hidden="true"><img src="assets/covers/mcm-momentum-set1.png" alt="" class="contain" loading="lazy" /></a>
+              <a class="project-art paper slides" href="projects/mcm-tennis-momentum.html" tabindex="-1" aria-hidden="true"><img src="assets/covers/mcm-momentum-set1.png" alt="" class="contain slide on" loading="lazy" /><img src="assets/covers/mcm-cumulative.jpg" alt="" class="contain slide" loading="lazy" /><img src="assets/covers/mcm-workflow.png" alt="" class="contain slide" loading="lazy" /><img src="assets/covers/mcm-weights.png" alt="" class="contain slide" loading="lazy" /><span class="slide-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span></a>
               <div class="project-body">
                 <div class="number">MATHEMATICAL MODELLING · MCM 2024 · HONORABLE MENTION</div>
                 <h3>Modelling Momentum in Tennis</h3>
@@ -971,7 +978,7 @@
               </div>
             </article>
             <article class="project">
-              <a class="project-art paper" href="projects/dailysense.html" tabindex="-1" aria-hidden="true"><img src="assets/covers/dailysense-architecture.jpg" alt="" class="contain" loading="lazy" /></a>
+              <a class="project-art framed" href="projects/dailysense.html" tabindex="-1" aria-hidden="true" style="--bg:url('assets/previews/dailysense-loop-poster.jpg')"><video class="loop fit" autoplay muted loop playsinline preload="metadata" poster="assets/previews/dailysense-loop-poster.jpg" src="assets/previews/dailysense-loop.mp4"></video><span class="media-badge">▶ Video</span></a>
               <div class="project-body">
                 <div class="number">ANDROID · TEAM PROJECT · 2025</div>
                 <h3>DailySense — Intelligent Daily Companion</h3>
@@ -1076,6 +1083,24 @@
           });
         }, { threshold: 0.1 });
         vids.forEach(function (v) { io.observe(v); });
+      })();
+      // Multi-image previews: cross-fade through a project's figures while the card is on screen.
+      (function () {
+        var cards = Array.prototype.slice.call(document.querySelectorAll(".project-art.slides"));
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        cards.forEach(function (card, n) {
+          var imgs = card.querySelectorAll("img.slide"), dots = card.querySelectorAll(".slide-dots i"), k = 0, timer = null;
+          if (dots[0]) dots[0].classList.add("on");
+          if (reduce || imgs.length < 2) return;
+          function show(i) {
+            imgs[k].classList.remove("on"); if (dots[k]) dots[k].classList.remove("on");
+            k = i; imgs[k].classList.add("on"); if (dots[k]) dots[k].classList.add("on");
+          }
+          function start() { if (!timer) timer = setTimeout(function tick() { show((k + 1) % imgs.length); timer = setTimeout(tick, 3200); }, 1800 + (n % 3) * 700); }
+          function stop() { clearTimeout(timer); timer = null; }
+          if (!("IntersectionObserver" in window)) { start(); return; }
+          new IntersectionObserver(function (es) { es[0].isIntersecting ? start() : stop(); }, { threshold: 0.4 }).observe(card);
+        });
       })();
     </script>
   <script src="assets/motion.js?v=6" defer></script>
