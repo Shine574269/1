@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Page not found — Mengxuan Shen</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+<style>
+  :root { color-scheme: dark; --bg: #0a1117; --surface: #101c23; --text: #f0f5f3; --muted: #9aadae; --mint: #a6ffca; --border: #2a3b41; --ease: cubic-bezier(0.22, 1, 0.36, 1); }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px;
+    background: var(--bg); color: var(--text);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.6;
+  }
+  main { width: 100%; max-width: 560px; text-align: center; }
+  .code {
+    font-size: clamp(88px, 22vw, 150px); font-weight: 800; line-height: 1; letter-spacing: -0.06em; margin: 0;
+    color: var(--mint);
+  }
+  .code span { display: inline-block; animation: rise 0.8s var(--ease) both; }
+  .code span:nth-child(2) { animation-delay: 0.08s; }
+  .code span:nth-child(3) { animation-delay: 0.16s; }
+  .eyebrow { color: var(--mint); font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin: 18px 0 6px; }
+  h1 { font-size: clamp(24px, 5vw, 32px); line-height: 1.2; margin: 0 0 10px; }
+  p { color: var(--muted); margin: 0 auto 26px; max-width: 440px; }
+  .buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .btn {
+    display: inline-block; padding: 11px 18px; border-radius: 9px; border: 1px solid var(--border);
+    color: var(--text); text-decoration: none; font-weight: 700; font-size: 15px;
+    transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
+  }
+  .btn:hover { transform: translateY(-2px); border-color: var(--mint); color: var(--mint); }
+  .btn:active { transform: scale(0.98); }
+  .btn:focus-visible { outline: 2px solid var(--mint); outline-offset: 3px; }
+  .btn.primary { background: var(--mint); border-color: var(--mint); color: #102219; }
+  .btn.primary:hover { color: #102219; }
+  .fade { animation: fade 0.8s var(--ease) 0.25s both; }
+  footer { margin-top: 40px; font-size: 13px; color: var(--muted); }
+  footer a { color: var(--mint); }
+  @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+  @keyframes fade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .code span, .fade { animation: none; } }
+</style>
+</head>
+<body>
+<main>
+  <p class="code" aria-hidden="true"><span>4</span><span>0</span><span>4</span></p>
+  <div class="fade">
+    <div class="eyebrow">Page not found</div>
+    <h1>This page doesn't exist.</h1>
+    <p>The link may be mistyped or out of date. Everything on this portfolio is reachable from the home page.</p>
+    <nav class="buttons" aria-label="Where to go next">
+      <a class="btn primary" href="/">Back to home</a>
+      <a class="btn" href="/#projects">View projects</a>
+      <a class="btn" href="/#contact">Contact</a>
+    </nav>
+    <footer>Mengxuan Shen · <a href="https://github.com/Shine574269">GitHub</a> · <a href="https://www.linkedin.com/in/mengxuan-shen-88a547360/">LinkedIn</a></footer>
+  </div>
+</main>
+</body>
+</html>
