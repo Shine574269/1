@@ -172,3 +172,4 @@ main figure figcaption{margin:8px auto 0!important}
 figure.fig-narrow img{max-width:min(100%,620px)}
 .table-scroll+.buttons,table+.buttons,.study-section>.buttons{margin-top:22px}
 @media(min-width:761px){.facts:has(>div:nth-child(4):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:761px){.facts.facts-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
