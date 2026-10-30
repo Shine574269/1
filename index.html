@@ -1070,20 +1070,38 @@
         }
       });
       // Card previews autoplay (muted); pause them off-screen, and never animate for reduced-motion visitors.
+      // Mobile browsers (iOS Safari, in-app browsers) pause videos when you open a project and come back
+      // via the back button (page restored from cache), so visible videos are restarted on return and on the next touch.
       (function () {
         var vids = Array.prototype.slice.call(document.querySelectorAll("video.loop"));
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
           vids.forEach(function (v) { v.removeAttribute("autoplay"); v.pause(); });
           return;
         }
-        vids.forEach(function (v) { v.muted = true; var p = v.play(); if (p && p.catch) p.catch(function () {}); });
-        if (!("IntersectionObserver" in window)) return;
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) { var p = e.target.play(); if (p && p.catch) p.catch(function () {}); } else { e.target.pause(); }
-          });
-        }, { threshold: 0.1 });
-        vids.forEach(function (v) { io.observe(v); });
+        vids.forEach(function (v) {
+          v.muted = true; v.defaultMuted = true; v.playsInline = true;
+          v.setAttribute("muted", ""); v.setAttribute("playsinline", ""); v.setAttribute("webkit-playsinline", "");
+        });
+        function tryPlay(v) { if (!v.paused) return; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+        function onScreen(v) { var r = v.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight && r.width > 0; }
+        function playVisible() { vids.forEach(function (v) { if (onScreen(v)) tryPlay(v); else v.pause(); }); }
+        if ("IntersectionObserver" in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { if (e.isIntersecting) tryPlay(e.target); else e.target.pause(); });
+          }, { threshold: 0.1 });
+          vids.forEach(function (v) { io.observe(v); });
+        } else {
+          vids.forEach(tryPlay);
+        }
+        window.addEventListener("pageshow", function () { setTimeout(playVisible, 60); });
+        document.addEventListener("visibilitychange", function () { if (!document.hidden) setTimeout(playVisible, 60); });
+        window.addEventListener("focus", playVisible);
+        ["touchstart", "touchend", "click"].forEach(function (t) {
+          document.addEventListener(t, playVisible, { passive: true });
+        });
+        var scrollT;
+        window.addEventListener("scroll", function () { clearTimeout(scrollT); scrollT = setTimeout(playVisible, 150); }, { passive: true });
+        document.addEventListener("WeixinJSBridgeReady", playVisible, false);
       })();
       // Multi-image previews: cross-fade through a project's figures while the card is on screen.
       (function () {
