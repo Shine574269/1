@@ -1,0 +1,102 @@
+/* Motion layer: scroll reveals, entrance, hover/press states, sticky nav.
+   Content is untouched; everything here is presentation only.
+   Elements are hidden only while html.motion is set (added by an inline head script),
+   so the page stays fully visible without JavaScript or with reduced motion. */
+:root { --ease-out: cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* ---------- Reveal on scroll ---------- */
+html.motion .rv {
+  opacity: 0;
+  transform: translate3d(0, 32px, 0);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  transition-delay: var(--rv-delay, 0ms);
+}
+html.motion .rv.rv-in { opacity: 1; transform: none; }
+html.motion .rv.rv-fade { transform: none; }
+
+/* ---------- Word-by-word heading reveal ---------- */
+html.motion .rw .w {
+  display: inline-block;
+  opacity: 0.28;
+  transition: opacity 0.5s var(--ease-out);
+  transition-delay: calc(var(--i) * 70ms);
+}
+html.motion .rw.rw-in .w { opacity: 1; }
+
+/* ---------- Timeline progress line + dots ---------- */
+.timeline { position: relative; }
+html.motion .timeline::after {
+  content: "";
+  position: absolute;
+  left: -2px; top: 0; bottom: 0; width: 2px;
+  background: var(--mint, #a6ffca);
+  transform-origin: top;
+  transform: scaleY(var(--tl, 0));
+  transition: transform 0.25s linear;
+  pointer-events: none;
+}
+html.motion .timeline li::before { transform: scale(0); transition: transform 0.5s var(--ease-out) 0.15s; z-index: 1; }
+html.motion .timeline li.rv-in::before { transform: scale(1); }
+
+/* ---------- Hover / press / focus states ---------- */
+.btn, button.btn, .project, .skill, .panel, .document-card, .lab, .stat-strip > div, .facts > div,
+.overview article, .compare > div, .pill, .tech, .navlinks a, .project-link, .zoom-btn {
+  transition: transform 0.3s var(--ease-out), border-color 0.3s var(--ease-out),
+              background-color 0.3s var(--ease-out), color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active, button:active { transform: scale(0.98) !important; }
+.btn:focus-visible, a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--mint, #a6ffca);
+  outline-offset: 3px;
+}
+@media (hover: hover) {
+  .project:hover { transform: translateY(-4px); border-color: #4f7a70; box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.8); }
+  .project .project-art img, .project .project-art video { transition: transform 0.6s var(--ease-out); }
+  .project:hover .project-art img, .project:hover .project-art video { transform: scale(1.03); }
+  .skill:hover, .panel:hover, .document-card:hover, .lab:hover, .stat-strip > div:hover,
+  .overview article:hover, .compare > div:hover { transform: translateY(-3px); border-color: #4f7a70; }
+  .skill:hover .symbol { transform: rotate(-8deg) scale(1.1); }
+}
+.skill .symbol { display: inline-block; transition: transform 0.5s var(--ease-out); }
+
+/* ---------- Sticky, blurred navigation (home page) ---------- */
+.nav.nav-sticky {
+  position: sticky; top: 0; z-index: 50;
+}
+.nav.nav-sticky::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: calc(50% - 50vw); right: calc(50% - 50vw);
+  z-index: -1; pointer-events: none;
+  background: rgba(10, 17, 23, 0.8);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: 0 10px 30px -20px rgba(0, 0, 0, 0.9);
+  opacity: 0; transition: opacity 0.3s var(--ease-out);
+}
+.nav.nav-sticky.stuck::before { opacity: 1; }
+.navlinks a { position: relative; }
+.navlinks a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px;
+  background: var(--mint, #a6ffca); transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s var(--ease-out);
+}
+.navlinks a:hover::after, .navlinks a.active::after { transform: scaleX(1); }
+.navlinks a.active { color: var(--mint, #a6ffca); }
+section[id] { scroll-margin-top: 84px; }
+
+/* ---------- Scroll progress bar ---------- */
+.scroll-progress {
+  position: fixed; left: 0; top: 0; height: 2px; width: 100%; z-index: 60;
+  background: var(--mint, #a6ffca); transform-origin: left; transform: scaleX(0);
+  pointer-events: none;
+}
+
+/* ---------- Reduced motion: no movement at all ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html.motion .rv { transform: none !important; transition: opacity 0.3s; }
+  html.motion .rw .w { transition: none; opacity: 1; }
+  .project:hover, .btn:hover, .skill:hover, .panel:hover, .document-card:hover, .lab:hover { transform: none !important; }
+  .scroll-progress { display: none; }
+}
+
+body { overflow-x: clip; }

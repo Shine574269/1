@@ -678,7 +678,9 @@
         .contact-actions .btn { width: 100%; margin: 0; padding-left: 6px; padding-right: 6px; text-align: center; justify-content: center; white-space: nowrap; font-size: 14px; }
       }
     </style>
-  </head>
+  <link rel="stylesheet" href="assets/motion.css?v=1">
+<script>(function(d){if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("motion");setTimeout(function(){if(!window.__motionReady)d.classList.remove("motion")},3000)}})(document.documentElement)</script>
+</head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <header class="container nav">
@@ -1076,5 +1078,6 @@
         vids.forEach(function (v) { io.observe(v); });
       })();
     </script>
-  </body>
+  <script src="assets/motion.js?v=1" defer></script>
+</body>
 </html>
