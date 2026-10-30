@@ -129,7 +129,7 @@
       if (started || !es[0].isIntersecting) return;
       started = true; hio.disconnect();
       letters.forEach(function (l, i) {
-        setTimeout(function () { l.classList.add("on"); }, 500 + i * 70);
+        setTimeout(function () { l.classList.add("on"); }, 400 + i * 45);
       });
     }, { threshold: 1, rootMargin: "0px 0px -15% 0px" });
     hio.observe(h);

@@ -7,7 +7,7 @@
 <title>TED Talks Search &amp; Recommendation — Mengxuan Shen</title>
 <link rel="stylesheet" href="../assets/project-study.css?v=18">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/motion.css?v=4">
+<link rel="stylesheet" href="../assets/motion.css?v=5">
 <script>(function(d){if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("motion");setTimeout(function(){if(!window.__motionReady)d.classList.remove("motion")},3000)}})(document.documentElement)</script>
 </head>
 <body>
@@ -59,6 +59,6 @@ function run(){if(!db)return;const query=$('ted-query').value.trim();$('ted-resu
 document.addEventListener('click',function(e){var b=e.target.closest('.chip-q');if(!b)return;var q=document.getElementById('ted-query');q.value=b.dataset.q;document.getElementById('ted-run').click();document.getElementById('live-demo').scrollIntoView({behavior:'smooth',block:'start'});});
 </script>
 <script src="../assets/project-ui.js?v=2" defer></script>
-<script src="../assets/motion.js?v=4" defer></script>
+<script src="../assets/motion.js?v=5" defer></script>
 </body>
 </html>

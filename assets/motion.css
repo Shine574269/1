@@ -20,7 +20,7 @@ html.motion .rw .l {
   display: inline-block;
   opacity: 0.15;
   transform: translateY(0.35em);
-  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out), color 0.6s var(--ease-out);
+  transition: opacity 0.45s var(--ease-out), transform 0.45s var(--ease-out);
 }
 html.motion .rw .l.on { opacity: 1; transform: none; }
 
