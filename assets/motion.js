@@ -102,7 +102,8 @@
     });
   }
 
-  // ---------- Word-by-word reveal for the contact heading ----------
+  // ---------- Word-by-word reveal for the contact heading (scroll-linked) ----------
+  var wordHeads = [];
   document.querySelectorAll(".callout h2").forEach(function (h) {
     if (h.children.length) return;
     var words = h.textContent.trim().split(/\s+/);
@@ -116,10 +117,7 @@
       if (i < words.length - 1) h.appendChild(document.createTextNode(" "));
     });
     h.classList.add("rw");
-    var hio = new IntersectionObserver(function (es) {
-      if (es[0].isIntersecting) { h.classList.add("rw-in"); hio.disconnect(); }
-    }, { threshold: 0.6 });
-    hio.observe(h);
+    wordHeads.push(h);
   });
 
   // ---------- Scroll-linked pieces (rAF throttled) ----------
@@ -144,6 +142,15 @@
       var p = (vh * 0.7 - r.top) / r.height;
       timeline.style.setProperty("--tl", Math.max(0, Math.min(1, p)).toFixed(3));
     }
+    wordHeads.forEach(function (h) {
+      var r = h.getBoundingClientRect();
+      // Words light up one by one as the heading travels from 85% to 45% of the viewport height.
+      var k = (vh * 0.85 - r.top) / (vh * 0.4);
+      if (y + vh >= document.documentElement.scrollHeight - 4) k = 1;
+      var ws = h.querySelectorAll(".w"), n = ws.length;
+      var lit = Math.max(0, Math.min(n, Math.floor(k * n + 0.0001)));
+      for (var i = 0; i < n; i++) ws[i].classList.toggle("on", i < lit);
+    });
     if (links.length) {
       var current = -1;
       sections.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < vh * 0.35) current = i; });
