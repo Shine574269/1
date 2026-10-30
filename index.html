@@ -670,7 +670,8 @@
         .skill .symbol { margin: 0 !important; }
         .skill h3 { margin: 0 !important; }
         .skill p { grid-column: 1 / -1; margin-top: 12px; }
-        .project-art.wide-art { height: auto !important; aspect-ratio: 16 / 9; }
+        .project-art.wide-art { height: auto !important; aspect-ratio: 1576 / 672; display: block; }
+        .project-art.wide-art picture { display: block; width: 100%; height: 100%; }
         .project-art.wide-art img { width: 100%; height: 100%; object-fit: contain; }
         .contact-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%; }
         .contact-actions .btn { width: 100%; margin: 0; padding-left: 6px; padding-right: 6px; text-align: center; justify-content: center; white-space: nowrap; font-size: 14px; }
@@ -997,7 +998,7 @@
               </div>
             </article>
             <article class="project">
-              <a class="project-art wide-art" href="projects/cpt205-opengl.html" tabindex="-1" aria-hidden="true"><img src="assets/covers/opengl-day-night-16x9.jpg" alt="" class="cover" loading="lazy" /></a>
+              <a class="project-art wide-art" href="projects/cpt205-opengl.html" tabindex="-1" aria-hidden="true"><picture><source media="(max-width: 720px)" srcset="assets/covers/opengl-day-night-mobile.jpg" /><img src="assets/covers/opengl-day-night-16x9.jpg" alt="" class="cover" loading="lazy" /></picture></a>
               <div class="project-body">
                 <div class="number">COMPUTER GRAPHICS · 2024</div>
                 <h3>OpenGL Interactive Birthday Card</h3>
