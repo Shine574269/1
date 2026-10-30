@@ -76,6 +76,13 @@
     if (batch.length && !scheduled) { scheduled = true; requestAnimationFrame(flush); }
   }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
   targets.forEach(function (el) { io.observe(el); });
+  // Anything the reader has already scrolled past (fast scroll, anchor jump, layout shift) is shown at once.
+  function revealPassed() {
+    targets.forEach(function (el) {
+      if (el.classList.contains("rv-in")) return;
+      if (el.getBoundingClientRect().bottom < 0) { io.unobserve(el); el.classList.add("rv-in"); }
+    });
+  }
 
   // ---------- Count-up for whole-number stats (final text is identical) ----------
   if (!reduce) {
@@ -152,6 +159,7 @@
     var max = document.documentElement.scrollHeight - vh;
     bar.style.transform = "scaleX(" + (max > 0 ? Math.min(1, y / max) : 0) + ")";
     if (nav) nav.classList.toggle("stuck", y > 20);
+    revealPassed();
     if (timeline) {
       var r = timeline.getBoundingClientRect();
       var p = (vh * 0.7 - r.top) / r.height;
