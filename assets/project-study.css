@@ -140,3 +140,13 @@ figcaption{margin:8px 0 6px}
 .buttons{gap:10px}
 .buttons .btn{flex:1 1 auto;text-align:center;font-size:15px;padding:10px 14px}
 }
+@media (max-width:650px){
+.project-header{padding:14px 0 4px}
+.project-header .lead{margin-bottom:8px}
+.hero-media{margin:14px 0 6px}
+.gallery{gap:20px}
+.gallery figure,.gallery .zoom-wrap{margin:0}
+.gallery figcaption,.hero-media figcaption{margin:8px 0 0}
+.study-section>p{margin:10px 0 14px}
+.study-section h2{margin-bottom:10px}
+}
