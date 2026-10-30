@@ -1108,6 +1108,34 @@
         window.addEventListener("scroll", function () { clearTimeout(scrollT); scrollT = setTimeout(playVisible, 150); }, { passive: true });
         document.addEventListener("WeixinJSBridgeReady", playVisible, false);
       })();
+      // Coming back from a project (back button, back link or a direct link) lands on that project's card.
+      (function () {
+        document.addEventListener("click", function (e) {
+          var a = e.target.closest && e.target.closest('a[href^="projects/"]');
+          if (!a) return;
+          var m = a.getAttribute("href").match(/^projects\/([a-z0-9-]+)\.html/);
+          if (!m || !document.getElementById("p-" + m[1])) return;
+          try { history.replaceState(history.state, "", "#p-" + m[1]); } catch (err) {}
+        }, true);
+        var moved = false;
+        ["wheel", "touchmove", "keydown"].forEach(function (t) { window.addEventListener(t, function () { moved = true; }, { passive: true }); });
+        function align() {
+          if (moved) return;
+          var id = location.hash.slice(1);
+          if (id.indexOf("p-") !== 0) return;
+          var el = document.getElementById(id);
+          if (!el) return;
+          var html = document.documentElement, prev = html.style.scrollBehavior;
+          html.style.scrollBehavior = "auto";
+          el.scrollIntoView({ block: "start" });
+          html.style.scrollBehavior = prev;
+        }
+        if ("scrollRestoration" in history && location.hash.indexOf("#p-") === 0) history.scrollRestoration = "manual";
+        align();
+        document.addEventListener("DOMContentLoaded", align);
+        window.addEventListener("load", function () { align(); setTimeout(align, 300); });
+        window.addEventListener("pageshow", function (e) { if (e.persisted) return; setTimeout(align, 0); });
+      })();
       // Multi-image previews: cross-fade through a project's figures while the card is on screen.
       (function () {
         var cards = Array.prototype.slice.call(document.querySelectorAll(".project-art.slides"));
