@@ -14,14 +14,15 @@ html.motion .rv {
 html.motion .rv.rv-in { opacity: 1; transform: none; }
 html.motion .rv.rv-fade { transform: none; }
 
-/* ---------- Word-by-word heading reveal ---------- */
-html.motion .rw .w {
+/* ---------- Letter-by-letter heading reveal ---------- */
+.rw .w { display: inline-block; white-space: nowrap; }
+html.motion .rw .l {
   display: inline-block;
-  opacity: 0.2;
-  transform: translateY(6px);
-  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+  opacity: 0.15;
+  transform: translateY(0.35em);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out), color 0.6s var(--ease-out);
 }
-html.motion .rw .w.on { opacity: 1; transform: none; }
+html.motion .rw .l.on { opacity: 1; transform: none; }
 
 /* ---------- Timeline progress line + dots ---------- */
 .timeline { position: relative; }
@@ -94,7 +95,7 @@ section[id] { scroll-margin-top: 84px; }
 /* ---------- Reduced motion: no movement at all ---------- */
 @media (prefers-reduced-motion: reduce) {
   html.motion .rv { transform: none !important; transition: opacity 0.3s; }
-  html.motion .rw .w { transition: none; opacity: 1; transform: none; }
+  html.motion .rw .l { transition: none; opacity: 1; transform: none; }
   .project:hover, .btn:hover, .skill:hover, .panel:hover, .document-card:hover, .lab:hover { transform: none !important; }
   .scroll-progress { display: none; }
 }

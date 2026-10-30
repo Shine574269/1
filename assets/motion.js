@@ -102,31 +102,34 @@
     });
   }
 
-  // ---------- Word-by-word reveal for the contact heading (scroll-linked) ----------
-  var wordHeads = [];
+  // ---------- Letter-by-letter reveal for the contact heading ----------
   document.querySelectorAll(".callout h2").forEach(function (h) {
     if (h.children.length) return;
-    var words = h.textContent.trim().split(/\s+/);
-    h.setAttribute("aria-label", h.textContent.trim());
+    var text = h.textContent.trim();
+    var words = text.split(/\s+/);
+    h.setAttribute("aria-label", text);
     h.textContent = "";
+    var letters = [];
     words.forEach(function (w, i) {
-      var s = document.createElement("span");
-      s.className = "w"; s.setAttribute("aria-hidden", "true");
-      s.style.setProperty("--i", i); s.textContent = w;
-      h.appendChild(s);
+      var ws = document.createElement("span");   // keeps each word on one line
+      ws.className = "w"; ws.setAttribute("aria-hidden", "true");
+      Array.from(w).forEach(function (ch) {
+        var l = document.createElement("span");
+        l.className = "l"; l.textContent = ch;
+        ws.appendChild(l); letters.push(l);
+      });
+      h.appendChild(ws);
       if (i < words.length - 1) h.appendChild(document.createTextNode(" "));
     });
     h.classList.add("rw");
-    wordHeads.push(h);
-    // Once the heading is fully in view (and its card has finished fading in),
-    // light the words one after another. Time-based, so it never depends on how far the page can scroll.
+    // Once the heading is fully in view (and its card has faded in), letters light up one after another.
+    // Time-based, so it never depends on how far the page can scroll.
     var started = false;
     var hio = new IntersectionObserver(function (es) {
       if (started || !es[0].isIntersecting) return;
       started = true; hio.disconnect();
-      var ws = h.querySelectorAll(".w");
-      Array.prototype.forEach.call(ws, function (w, i) {
-        setTimeout(function () { w.classList.add("on"); }, 500 + i * 320);
+      letters.forEach(function (l, i) {
+        setTimeout(function () { l.classList.add("on"); }, 500 + i * 70);
       });
     }, { threshold: 1, rootMargin: "0px 0px -15% 0px" });
     hio.observe(h);
